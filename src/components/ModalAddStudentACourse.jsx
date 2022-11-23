@@ -1,9 +1,10 @@
 import {
   Button,
-  ButtonGroup,
+  CircularProgress,
   IconButton,
+  MenuItem,
   Modal,
-  TextField,
+  Select,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
@@ -13,28 +14,32 @@ import {
   boxContainer,
   boxPrincipal,
   modalStyle,
-  textFields,
   titleModal,
+  textFields,
 } from "./styles/stylesModals";
 import CloseIcon from "@mui/icons-material/Close";
 import useForm from "../hooks/useForm";
 import { useDispatch, useSelector } from "react-redux";
-import { StartAddCourse } from "../redux/actions/teacherActions";
+import { StartAddStudentToACourse } from "../redux/actions/teacherActions";
 
-const ModalCreateCourse = ({ isOpen, handleOnClose, teacher }) => {
+const ModalAddStudentACourse = ({ isOpen, handleOnClose }) => {
   const dispatch = useDispatch();
   const { jwt } = useSelector((s) => s?.authReducer);
+  const { course } = useSelector((s) => s?.teacherReducer);
+  const { studentsAll } = useSelector((s) => s?.studentReducer);
   const [values, handleInputChange, resetValues] = useForm({
-    name: "",
-    period: "",
+    studentId: 0,
+    courseId: course.course_id,
   });
-  const { name, period } = values;
+
+  const { studentId } = values;
 
   const handleOnSubmit = (ev) => {
     ev.preventDefault();
-    dispatch(StartAddCourse(jwt, values, teacher.teacher_id));
+    dispatch(StartAddStudentToACourse(jwt, values));
     handleOnClose();
   };
+
   return (
     <Modal open={isOpen} onClose={handleOnClose} sx={modalStyle}>
       <Box sx={boxPrincipal}>
@@ -53,7 +58,7 @@ const ModalCreateCourse = ({ isOpen, handleOnClose, teacher }) => {
             textAlign="center"
             sx={titleModal}
           >
-            Agregar Curso
+            Agregar Estudiante al curso
           </Typography>
           <form
             onSubmit={(ev) => handleOnSubmit(ev)}
@@ -73,49 +78,32 @@ const ModalCreateCourse = ({ isOpen, handleOnClose, teacher }) => {
                 textAlign="center"
                 sx={{ color: "#fff" }}
               >
-                Nombre curso
+                Estudiante
               </Typography>
-              <TextField
-                required
-                size="small"
-                sx={textFields}
-                id="outlined-basic"
-                label="Nombre"
-                variant="outlined"
-                name="name"
-                value={name}
-                onChange={handleInputChange}
-              />
+              {studentsAll.length === 0 ? (
+                <CircularProgress />
+              ) : (
+                <Select
+                  required
+                  name="studentId"
+                  //fullWidth
+                  sx={textFields}
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  label="Filtrar Por"
+                  onChange={handleInputChange}
+                  value={studentId}
+                >
+                  {studentsAll.map((student) => (
+                    <MenuItem key={student.rut} value={student.student_id}>
+                      {student.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              )}
             </Box>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                marginY: "20px",
-              }}
-            >
-              <Typography
-                variant="h6"
-                component="h6"
-                textAlign="center"
-                sx={{ color: "#fff" }}
-              >
-                Periodo curso
-              </Typography>
-              <TextField
-                required
-                size="small"
-                sx={textFields}
-                id="outlined-basic"
-                label="Periodo"
-                variant="outlined"
-                name="period"
-                value={period}
-                onChange={handleInputChange}
-              />
-            </Box>
-            <Box mt={5} sx={boxButton}>
+
+            <Box sx={boxButton}>
               <Button
                 type="submit"
                 sx={{ backgroundColor: "#fff", marginX: "10px" }}
@@ -138,4 +126,4 @@ const ModalCreateCourse = ({ isOpen, handleOnClose, teacher }) => {
   );
 };
 
-export default ModalCreateCourse;
+export default ModalAddStudentACourse;

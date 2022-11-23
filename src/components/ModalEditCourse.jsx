@@ -11,7 +11,14 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import React, { useEffect, useState } from "react";
-import { BoxContainer, BoxPrincipal, ModalStyle } from "./styles/stylesModals";
+import {
+  boxButton,
+  boxContainer,
+  boxPrincipal,
+  modalStyle,
+  textFields,
+  titleModal,
+} from "./styles/stylesModals";
 import { useDispatch, useSelector } from "react-redux";
 import useForm from "../hooks/useForm";
 import { StartEditCourse } from "../redux/actions/teacherActions";
@@ -24,7 +31,7 @@ const ModalEditCourse = ({ isOpen, handleOnClose }) => {
   // const [values, handleInputChange] = useForm(profile); TODO:implementar
 
   useEffect(() => {
-    console.log(course);
+    // console.log(course);
     setState({ ...state, ...course });
   }, [course]);
 
@@ -56,9 +63,9 @@ const ModalEditCourse = ({ isOpen, handleOnClose }) => {
   };
 
   return (
-    <Modal open={isOpen} onClose={handleOnClose} sx={ModalStyle}>
-      <Box sx={BoxPrincipal}>
-        <Box sx={BoxContainer}>
+    <Modal open={isOpen} onClose={handleOnClose} sx={modalStyle}>
+      <Box sx={boxPrincipal}>
+        <Box sx={boxContainer}>
           <IconButton
             aria-label="delete"
             size="small"
@@ -71,7 +78,7 @@ const ModalEditCourse = ({ isOpen, handleOnClose }) => {
             variant="h6"
             component="h6"
             textAlign="center"
-            sx={{ color: "#fff" }}
+            sx={titleModal}
           >
             Editar Curso
           </Typography>
@@ -99,7 +106,8 @@ const ModalEditCourse = ({ isOpen, handleOnClose }) => {
               </Typography>
               <TextField
                 required
-                sx={{ backgroundColor: "#fff", borderRadius: "5px" }}
+                size="small"
+                sx={textFields}
                 id="outlined-basic"
                 label="Nombre"
                 variant="outlined"
@@ -127,7 +135,8 @@ const ModalEditCourse = ({ isOpen, handleOnClose }) => {
               <TextField
                 required
                 name="period"
-                sx={{ backgroundColor: "#fff", borderRadius: "5px" }}
+                size="small"
+                sx={textFields}
                 id="outlined-basic"
                 label="Rut"
                 variant="outlined"
@@ -135,13 +144,7 @@ const ModalEditCourse = ({ isOpen, handleOnClose }) => {
                 onChange={handleChange}
               />
             </Box>
-            <ButtonGroup
-              sx={{
-                alignSelf: "center",
-                display: "flex",
-                justifyContent: "space-around",
-              }}
-            >
+            <Box sx={boxButton}>
               <Button
                 type="submit"
                 sx={{ backgroundColor: "#fff", marginX: "10px" }}
@@ -156,7 +159,7 @@ const ModalEditCourse = ({ isOpen, handleOnClose }) => {
               >
                 Cancelar
               </Button>
-            </ButtonGroup>
+            </Box>
           </form>
         </Box>
       </Box>

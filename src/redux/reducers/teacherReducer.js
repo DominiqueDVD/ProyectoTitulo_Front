@@ -13,12 +13,19 @@ const initialState = {
     createdAt: "",
     updatedAt: null,
   },
-  document: {
-    document_id: 0,
+  student: {
+    enrollment_id: null,
+    course_id: null,
+    student_id: null,
     name: "",
-    link: "",
+    period: "",
+    final_score: null,
+    teacher_id: null,
+    createdAt: "",
+    updatedAt: null,
   },
-  listShow: "Courses",
+  document: {},
+  listShow: "",
 };
 
 export const teacherReducer = (state = initialState, action) => {
@@ -26,9 +33,9 @@ export const teacherReducer = (state = initialState, action) => {
     case types.teacherGetCourse:
       return {
         ...state,
-        err: false,
-        message: "found succesfully",
-        data: action.payload,
+        err: action.payload.err,
+        message: action.payload.message,
+        data: action.payload.data,
         listShow: "Courses",
       };
     case types.teacherChooseCourse:
@@ -39,15 +46,35 @@ export const teacherReducer = (state = initialState, action) => {
     case types.teacherGetDocumentsByCourse:
       return {
         ...state,
-        err: false,
-        message: "found succesfully",
-        data: action.payload,
+        err: action.payload.err,
+        message: action.payload.message,
+        data: action.payload.data,
         listShow: "Documents",
       };
     case types.teacherChooseDocument:
       return {
         ...state,
         document: action.payload,
+      };
+    case types.teacherGetStudentByCourse:
+      return {
+        ...state,
+        err: action.payload.err,
+        message: action.payload.message,
+        data: action.payload.data,
+        listShow: "Students",
+      };
+    case types.teacherChooseStudent:
+      return {
+        ...state,
+        student: action.payload,
+      };
+    case types.teacherFilterCourse:
+      return {
+        ...state,
+        data: state.data.filter((course) =>
+          course.name.includes(action.payload)
+        ),
       };
     default:
       return state;

@@ -2,10 +2,11 @@ import { Box, Button, IconButton, Modal, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
 import {
-  BoxPrincipal,
-  BoxContainer,
-  ModalStyle,
-  BoxButton,
+  boxPrincipal,
+  boxContainer,
+  modalStyle,
+  boxButton,
+  titleModal,
 } from "./styles/stylesModals";
 import { useDispatch, useSelector } from "react-redux";
 import { StartDeleteCourse } from "../redux/actions/teacherActions";
@@ -20,9 +21,9 @@ const ModalDeleteCourse = ({ isOpen, handleOnClose, course }) => {
     handleOnClose();
   };
   return (
-    <Modal open={isOpen} onClose={handleOnClose} sx={ModalStyle}>
-      <Box sx={BoxPrincipal}>
-        <Box sx={BoxContainer}>
+    <Modal open={isOpen} onClose={handleOnClose} sx={modalStyle}>
+      <Box sx={{ ...boxPrincipal, width: "720px" }}>
+        <Box sx={boxContainer}>
           <IconButton
             aria-label="delete"
             size="small"
@@ -32,14 +33,14 @@ const ModalDeleteCourse = ({ isOpen, handleOnClose, course }) => {
             <CloseIcon fontSize="inherit" />
           </IconButton>
           <Typography
-            variant="h6"
-            component="h6"
+            variant="h5"
+            component="span"
             textAlign="center"
-            sx={{ color: "#fff" }}
+            sx={titleModal}
           >
             ¿Está seguro que desea eliminar el Curso?
           </Typography>
-          <Box sx={{ ...BoxButton, marginY: "50px" }}>
+          <Box mt={4} mb={3} sx={{ ...boxButton, columnGap: "24px" }}>
             <Button
               sx={{ backgroundColor: "#fff" }}
               variant="outlined"

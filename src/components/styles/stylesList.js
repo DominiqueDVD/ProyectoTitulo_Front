@@ -1,4 +1,4 @@
-export const BoxPrincipal = {
+export const boxPrincipal = {
   height: "calc(100vh - 80px)",
   paddingX: "50px",
   paddingY: "30px",
@@ -14,6 +14,7 @@ export const formFilters = {
   display: "flex",
   flexDirection: "row",
   width: "85%",
+  alignItems: "center",
   justifyContent: "space-between",
 };
 

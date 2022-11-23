@@ -11,7 +11,14 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import React, { useEffect, useState } from "react";
-import { BoxContainer, BoxPrincipal, ModalStyle } from "./styles/stylesModals";
+import {
+  boxButton,
+  boxContainer,
+  boxPrincipal,
+  modalStyle,
+  textFields,
+  titleModal,
+} from "./styles/stylesModals";
 import { useDispatch, useSelector } from "react-redux";
 import useForm from "../hooks/useForm";
 import { StartEditProfile } from "../redux/actions/profileActions";
@@ -63,9 +70,9 @@ const ModalEditProfile = ({ isOpen, handleOnClose }) => {
   };
 
   return (
-    <Modal open={isOpen} onClose={handleOnClose} sx={ModalStyle}>
-      <Box sx={BoxPrincipal}>
-        <Box sx={BoxContainer}>
+    <Modal open={isOpen} onClose={handleOnClose} sx={modalStyle}>
+      <Box sx={boxPrincipal}>
+        <Box sx={boxContainer}>
           <IconButton
             aria-label="delete"
             size="small"

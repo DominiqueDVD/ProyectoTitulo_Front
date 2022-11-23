@@ -9,23 +9,17 @@ import {
   titleModal,
 } from "./styles/stylesModals";
 import { useDispatch, useSelector } from "react-redux";
-import { StartDeleteDocumentByCourse } from "../redux/actions/teacherActions";
+import { StartDeleteStudentFromACourse } from "../redux/actions/teacherActions";
 
-const ModalDeleteDocument = ({ isOpen, handleOnClose, document }) => {
+const ModalDeleteStudentFromACourse = ({ isOpen, handleOnClose }) => {
   const { jwt } = useSelector((s) => s?.authReducer);
-  const { course } = useSelector((s) => s?.teacherReducer);
+  const { student } = useSelector((s) => s?.teacherReducer);
   const dispatch = useDispatch();
 
   const handleOnDelete = () => {
-    dispatch(
-      StartDeleteDocumentByCourse(
-        jwt,
-        document.type,
-        document.id,
-        course.course_id
-      )
-    );
     handleOnClose();
+    console.log({ jwt });
+    dispatch(StartDeleteStudentFromACourse(jwt, student));
   };
   return (
     <Modal open={isOpen} onClose={handleOnClose} sx={modalStyle}>
@@ -45,18 +39,18 @@ const ModalDeleteDocument = ({ isOpen, handleOnClose, document }) => {
             textAlign="center"
             sx={titleModal}
           >
-            ¿Está seguro que desea eliminar el Material?
+            ¿Está seguro que desea eliminar el Studiante del curso?
           </Typography>
           <Box sx={{ ...boxButton, marginY: "50px" }}>
             <Button
-              sx={{ backgroundColor: "#fff" }}
+              sx={{ marginX: "10px", backgroundColor: "#fff" }}
               variant="outlined"
               onClick={handleOnDelete}
             >
               Confirmar
             </Button>
             <Button
-              sx={{ backgroundColor: "#fff" }}
+              sx={{ marginX: "10px", backgroundColor: "#fff" }}
               variant="outlined"
               onClick={handleOnClose}
             >
@@ -69,4 +63,4 @@ const ModalDeleteDocument = ({ isOpen, handleOnClose, document }) => {
   );
 };
 
-export default ModalDeleteDocument;
+export default ModalDeleteStudentFromACourse;
