@@ -54,7 +54,7 @@ const Login = () => {
           fontWeight: 700,
         }}
       >
-        Bienvenid@ a Incloodle
+        Bienvenid@ 
       </Typography>
       <Typography
         variant="h6"
@@ -65,7 +65,7 @@ const Login = () => {
           fontWeight: 300,
         }}
       >
-        Plataforma para toma de evaluaciones
+        Plataforma accesible para toma de evaluaciones
       </Typography>
       <form
         style={{
@@ -156,7 +156,7 @@ const Login = () => {
           fontWeight: 300,
         }}
       >
-        Incloodle | Fomentando la Inclusión
+       Fomentando la Inclusión
       </Typography>
     </Box>
   );
