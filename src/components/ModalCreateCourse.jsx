@@ -115,6 +115,63 @@ const ModalCreateCourse = ({ isOpen, handleOnClose, teacher }) => {
                 onChange={handleInputChange}
               />
             </Box>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginY: "20px",
+              }}
+            >
+              <Typography
+                variant="h6"
+                component="h6"
+                textAlign="center"
+                sx={{ color: "#fff" }}
+              >
+                Carrera
+              </Typography>
+              <TextField
+                required
+                size="small"
+                sx={textFields}
+                id="outlined-basic"
+                label="Nombre"
+                variant="outlined"
+                name="carrera"
+           
+                onChange={handleInputChange}
+              />
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginY: "20px",
+              }}
+            >
+              <Typography
+                variant="h6"
+                component="h6"
+                textAlign="center"
+                sx={{ color: "#fff" }}
+              >
+                Descripción
+              </Typography>
+              <TextField
+                required
+                size="small"
+                sx={textFields}
+                id="outlined-basic"
+                label="Nombre"
+                variant="outlined"
+                name="Descripción"
+             
+                onChange={handleInputChange}
+              />
+            </Box>
+            
             <Box mt={4} mb={3} sx={boxButton}>
               <Button
                 type="submit"

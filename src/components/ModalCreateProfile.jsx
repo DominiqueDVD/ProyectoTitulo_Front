@@ -81,11 +81,11 @@ const ModalCreateProfile = ({ isOpen, handleOnClose }) => {
                 textAlign="center"
                 sx={{ color: "#fff" }}
               >
-                Nombre
+                Nombre y apellido
               </Typography>
               <TextField
                 required
-                size="small"
+                size="large"
                 sx={textFields}
                 id="outlined-basic"
                 label="Nombre"
