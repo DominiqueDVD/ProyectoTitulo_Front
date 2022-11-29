@@ -1,31 +1,32 @@
 import {
-  Box,
   Button,
+  CircularProgress,
   IconButton,
+  MenuItem,
   Modal,
-  TextField,
+  Select,
   Typography,
 } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
 import {
-  modalStyle,
-  boxPrincipal,
+  boxButton,
   boxContainer,
+  boxPrincipal,
+  modalStyle,
   titleModal,
   textFields,
-  boxButton,
 } from "../styles/stylesModals";
-import { useSelector } from "react-redux";
+import CloseIcon from "@mui/icons-material/Close";
+import { Box } from "@mui/system";
+
 const Page = ({
-  values,
+  courses,
+  state,
   isOpen,
   handleOnClose,
   handleOnSubmit,
   handleChange,
-  changeSuccess,
 }) => {
-  const { messageResetPass } = useSelector((s) => s?.uiReducer);
   return (
     <Modal open={isOpen} onClose={handleOnClose} sx={modalStyle}>
       <Box sx={boxPrincipal}>
@@ -44,10 +45,10 @@ const Page = ({
             textAlign="center"
             sx={titleModal}
           >
-            Cambiar Contraseña
+            Busar Examenes pedientes por curso:
           </Typography>
           <form
-            onSubmit={(ev) => handleOnSubmit(ev)}
+            onSubmit={handleOnSubmit}
             style={{
               alignSelf: "center",
             }}
@@ -66,57 +67,40 @@ const Page = ({
                 textAlign="center"
                 sx={{ color: "#fff" }}
               >
-                Contraseña Actual
+                Curso
               </Typography>
-              <TextField
-                type="password"
-                required
-                size="small"
-                sx={textFields}
-                id="outlined-basic"
-                label="Contraseña Actual"
-                variant="outlined"
-                name="passCurrent"
-                value={values?.passCurrent}
-                onChange={handleChange}
-              />
+              {courses.length === 0 ? (
+                <CircularProgress />
+              ) : (
+                <Select
+                  required
+                  name="course"
+                  size="small"
+                  value={state?.course}
+                  displayEmpty
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  label="Filtrar Por"
+                  onChange={handleChange}
+                  sx={{
+                    ...textFields,
+                    minWidth: 230,
+                    backgroundColor: "#ffffff",
+                  }}
+                >
+                  {courses.map((course) => (
+                    <MenuItem value={course.course_id}>{course.name}</MenuItem>
+                  ))}
+                </Select>
+              )}
             </Box>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                marginY: "20px",
-              }}
-            >
-              <Typography
-                variant="h6"
-                component="h6"
-                textAlign="center"
-                sx={{ color: "#fff" }}
-              >
-                Contraseña Nueva
-              </Typography>
-              <TextField
-                type="password"
-                required
-                name="passNew"
-                size="small"
-                sx={textFields}
-                id="outlined-basic"
-                label="Contraseña Nueva"
-                variant="outlined"
-                value={values?.passNew}
-                onChange={handleChange}
-              />
-            </Box>
-            <Box sx={boxButton}>
+            <Box mt={5} sx={boxButton}>
               <Button
                 type="submit"
                 sx={{ backgroundColor: "#fff", marginX: "10px" }}
                 variant="outlined"
               >
-                Guardar
+                Buscar
               </Button>
               <Button
                 sx={{ backgroundColor: "#fff", marginX: "10px" }}
@@ -127,9 +111,6 @@ const Page = ({
               </Button>
             </Box>
           </form>
-          <Typography align="center" variant="h5" component="h5">
-            {messageResetPass}
-          </Typography>
         </Box>
       </Box>
     </Modal>
