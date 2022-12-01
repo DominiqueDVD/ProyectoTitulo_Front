@@ -7,6 +7,7 @@ import IndexFinalScoreOfTheStudent from "../../components/ModalFinalScoreOfTheSt
 import { useModal } from "../../hooks/useModal";
 import {
   ChooseStudent,
+  StartGetReport,
   StartGetStudentByCourse,
 } from "../../redux/actions/teacherActions";
 import Page from "./Page";
@@ -27,6 +28,7 @@ const IndexStudentsByCourse = () => {
     handleOpenModal: handleOpenModalFinalScore,
     handleCloseModal: handleCloseModalFinalScore,
   } = useModal(false);
+
   const { jwt } = useSelector((s) => s?.authReducer);
   const { dataStudentsByCourse, dataFiltered } = useSelector(
     (s) => s?.teacherReducer
@@ -39,8 +41,9 @@ const IndexStudentsByCourse = () => {
     handleOpenModalFinalScore();
   };
 
-  const handleReportStudent = () => {
-    console.log("handleReportStudent");
+  const handleReportStudent = (data) => {
+    dispatch(ChooseStudent(data));
+    dispatch(StartGetReport(jwt, data.student_id, Number(id)));
   };
 
   const handleDelete = (data) => {

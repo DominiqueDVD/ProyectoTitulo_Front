@@ -117,6 +117,7 @@ export const teacherReducer = (state = initialState, action) => {
         ...state,
         dataFiltered: [],
       };
+
     default:
       return state;
   }
