@@ -1,4 +1,5 @@
 import {
+  AlertTitle,
   Button,
   ButtonGroup,
   IconButton,
@@ -97,7 +98,7 @@ const Page = ({
                   </IconButton>
                   <IconButton
                     sx={{
-                      background: "#1976d2",
+                      background: "#F80000",
                       marginX: "5px",
                     }}
                     onClick={() => handleStopRecord()}
@@ -106,7 +107,7 @@ const Page = ({
                   </IconButton>
                   <IconButton
                     sx={{
-                      background: "#1976d2",
+                      background: "#F8F32B",
                       marginX: "5px",
                     }}
                     onClick={() => handleReadAnswer(name)}
