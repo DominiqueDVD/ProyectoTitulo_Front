@@ -78,6 +78,7 @@ export const StartEditProfile = (jwt, values) => {
           `/api/teacher/${values.id}`,
           {
             name: values.name,
+            lastname: values.lastname,
             rut: values.rut,
             password: values.password,
           },
@@ -91,6 +92,7 @@ export const StartEditProfile = (jwt, values) => {
           `/api/student/${values.id}`,
           {
             name: values.name,
+            lastname: values.lastname,
             rut: values.rut,
             password: values.password,
           },

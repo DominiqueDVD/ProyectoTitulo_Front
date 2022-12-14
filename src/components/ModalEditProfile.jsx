@@ -40,6 +40,7 @@ const ModalEditProfile = ({ isOpen, handleOnClose }) => {
         id: "",
         email: "",
         name: "",
+        lastname: "",
         rol: "",
         rut: "",
         password: "",
@@ -51,6 +52,7 @@ const ModalEditProfile = ({ isOpen, handleOnClose }) => {
     id: "",
     email: "",
     name: "",
+    lastname: "",
     rol: "",
     rut: "",
     password: "",
@@ -119,6 +121,33 @@ const ModalEditProfile = ({ isOpen, handleOnClose }) => {
                 variant="outlined"
                 name="name"
                 value={state?.name}
+                onChange={handleChange}
+              />
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginY: "20px",
+              }}
+            >
+              <Typography
+                variant="h6"
+                component="h6"
+                textAlign="center"
+                sx={{ color: "#fff" }}
+              >
+                Apellido
+              </Typography>
+              <TextField
+                required
+                sx={{ backgroundColor: "#fff", borderRadius: "5px" }}
+                id="outlined-basic"
+                label="Apellido"
+                variant="outlined"
+                name="lastname"
+                value={state?.lastname}
                 onChange={handleChange}
               />
             </Box>

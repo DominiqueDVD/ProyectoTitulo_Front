@@ -19,7 +19,7 @@ const ListItemProfile = ({ data, handleEdit, handleDelete }) => {
         dense={true}
       >
         <Typography variant="h6" component="p">
-          {`${data.name} - (${data.rol === 1 ? "Profesor" : "Estudiante"})`}
+          {`${data.name}  ${data.email} `}
         </Typography>
       </ListItemButton>
       <ButtonGroup
@@ -42,6 +42,7 @@ ListItemProfile.propTypes = {
     student_id: PropTypes.number,
     email: PropTypes.string,
     name: PropTypes.string,
+    lastname: PropTypes.string,
     rut: PropTypes.string,
     rol: PropTypes.number,
   }).isRequired,

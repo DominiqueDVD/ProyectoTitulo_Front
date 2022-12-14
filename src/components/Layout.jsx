@@ -77,7 +77,7 @@ const Layout = ({ children }) => {
     <Box
       sx={{
         height: "100vh",
-        background: "linear-gradient(90.03deg, #4B46B8 0.02%, #03A7C0 99.97%)",
+        background: "linear-gradient(90.03deg, #4B46B8 0.02%, #7B46B8 99.97%)",
         overflow: "hidden",
       }}
     >
@@ -107,7 +107,7 @@ const Layout = ({ children }) => {
         <Box sx={{ mt: 3, height: 320 }}>
           <SpeedDial
             ariaLabel="SpeedDial basic example"
-            sx={{ position: "absolute", bottom: 16, right: 16 }}
+            sx={{ position: "absolute", bottom: 16, }}
             icon={<HandymanIcon />}
           >
             {actions.map((action) => (

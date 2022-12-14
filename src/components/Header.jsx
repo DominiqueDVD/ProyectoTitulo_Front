@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import React from "react";
 import PropTypes from "prop-types";
 
-const Header = ({ name, children }) => {
+const Header = ({ name, lastname, children }) => {
   return (
     <Box
       sx={{
@@ -40,7 +40,7 @@ const Header = ({ name, children }) => {
             WebkitBackgroundClip: "text",
           }}
         >
-          {name}
+          {name + lastname}
         </Typography>
       </Box>
       <Box>{children}</Box>
@@ -52,5 +52,6 @@ export default Header;
 
 Header.propTypes = {
   name: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };

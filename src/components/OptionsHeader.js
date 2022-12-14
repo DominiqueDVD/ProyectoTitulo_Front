@@ -44,7 +44,8 @@ export const OptionsTeacher = () => {
       <Button onClick={() => dispatch(openModalSearchExampending())}>
         Corregir
       </Button>
-      {/* <Button onClick={() => {}}>Instructivo</Button> */}
+    
+      <Button onClick={() => navigate("/instructivo")}>Instructivo</Button> 
       <Button onClick={() => dispatch(openModalChangePass())}>
         Cambiar Contraseña
       </Button>

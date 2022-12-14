@@ -27,6 +27,7 @@ const Page = ({
   exam,
 }) => {
   console.log(exam);
+  const { points, retro } = values;
   const { loading } = useSelector((s) => s?.uiReducer);
   return (
     <>
@@ -43,7 +44,7 @@ const Page = ({
           justifyContent: "center",
         }}
       >
-        <object data={exam} type="application/pdf" width="50%" height="100%">
+        <object data={exam} type="application/pdf" width="40%" height="100%">
           <p>
             Alternative text - include a link
             <a href="https://africau.edu/images/default/sample.pdf">
@@ -75,21 +76,81 @@ const Page = ({
                     justifyContent: "center",
                   }}
                 >
-                  <Typography mx={10} component="h6" variant="h6">
+                  <Typography mx={2} component="h7" variant="h7">
                     Pregunta {data.question_id}
                   </Typography>
                   <Box>
                     <TextField
-                      mx={10}
+                      mx={2}
                       id="standard-basic"
                       label={`Respuesta Pregunta ${data.question_id}`}
                       multiline
-                      maxRows={4}
+                      maxRows={3}
                       variant="outlined"
                       disabled
                       value={data.answer_text}
                     />
-                    <Button
+               
+                  </Box>
+                  <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  marginY: "20px",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  component="h6"
+                  textAlign="center"
+                  sx={{ color: "#fff" }}
+                >
+                 Puntuación
+                </Typography>
+                <TextField
+                 
+                  required
+                  type="number"
+                  label={`Puntuar Pregunta ${data.question_id}`}
+                  id="outlined-basic"
+                  variant="outlined"
+                  name="numberQuestions"
+
+                  value={points}
+                  onChange={handleInputChange}
+                />
+              </Box>
+              <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginY: "20px",
+              }}
+            >
+              <Typography
+                variant="h6"
+                component="h6"
+                textAlign="center"
+                sx={{ color: "#fff" }}
+              >
+                Nombre
+              </Typography>
+              <TextField
+         
+                required
+                label={`Corregir Pregunta ${data.question_id}`}
+                id="outlined-basic"
+           
+                variant="outlined"
+                name="name"
+                value={retro}
+                onChange={handleInputChange}
+                
+              />
+            </Box>
+            <Button
                       startIcon={<CheckIcon />}
                       onClick={() =>
                         handleSendCorrectionAnswer(data.answer_id, 1)
@@ -101,7 +162,6 @@ const Page = ({
                         handleSendCorrectionAnswer(data.answer_id, 0)
                       }
                     ></Button>
-                  </Box>
                 </ListItem>
               );
             })

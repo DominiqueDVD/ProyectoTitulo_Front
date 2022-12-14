@@ -16,6 +16,7 @@ import IndexStudentsByCourse from "../pages/StudentsByCourse/Index";
 import IndexTakeExam from "../pages/TakeExam/Index";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
+import Instructivo from "../pages/Instructive/Index"
 
 const AppRouter = () => (
   <Router>
@@ -26,6 +27,14 @@ const AppRouter = () => (
           <PublicRoute>
             <Login />
           </PublicRoute>
+        }
+      />
+      <Route
+        path="/instructivo"
+        element={
+          <PrivateRoute>
+            <Instructivo />
+          </PrivateRoute>
         }
       />
       <Route
@@ -150,6 +159,7 @@ const AppRouter = () => (
       />
       <Route path="*" element={<NotFound />} />
     </Routes>
+   
   </Router>
 );
 

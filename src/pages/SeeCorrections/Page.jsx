@@ -32,7 +32,7 @@ const Page = ({ data, handleSeeExam, score, exam }) => {
           justifyContent: "center",
         }}
       >
-        <object data={exam} type="application/pdf" width="50%" height="100%">
+        <object data={exam} type="application/pdf" width="40%" height="100%">
           <p>
             Alternative text - include a link
             <a href={exam}>to the PDF!</a>
@@ -62,12 +62,12 @@ const Page = ({ data, handleSeeExam, score, exam }) => {
                     justifyContent: "center",
                   }}
                 >
-                  <Typography mx={10} component="h6" variant="h6">
+                  <Typography mx={2} component="h6" variant="h6">
                     Pregunta {data.question_id}
                   </Typography>
                   <Box>
                     <TextField
-                      mx={10}
+                      mx={2}
                       id="standard-basic"
                       label={`Respuesta Pregunta ${data.question_id}`}
                       multiline
@@ -82,6 +82,63 @@ const Page = ({ data, handleSeeExam, score, exam }) => {
                       <Button disabled startIcon={<CloseIcon />}></Button>
                     )}
                   </Box>
+                  <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  marginY: "20px",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  component="h6"
+                  textAlign="center"
+                  sx={{ color: "#fff" }}
+                >
+                 Puntuación
+                </Typography>
+                <TextField
+                 
+                 mx={2}
+                 id="standard-basic"
+                 label={`Puntuación Pregunta ${data.question_id}`}
+                 multiline
+                 maxRows={4}
+                 variant="outlined"
+                 disabled
+                 value={data.answer_text}
+                />
+              </Box>
+              <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginY: "20px",
+              }}
+            >
+              <Typography
+                variant="h6"
+                component="h6"
+                textAlign="center"
+                sx={{ color: "#fff" }}
+              >
+                Nombre
+              </Typography>
+              <TextField
+         
+         mx={2}
+         id="standard-basic"
+         label={`Respuesta Pregunta ${data.question_id}`}
+         multiline
+         maxRows={4}
+         variant="outlined"
+         disabled
+         value={data.answer_text}
+                
+              />
+            </Box>
                 </ListItem>
               );
             })

@@ -27,12 +27,13 @@ const ModalCreateProfile = ({ isOpen, handleOnClose }) => {
   const { jwt } = useSelector((s) => s?.authReducer);
   const [values, handleInputChange, resetValues] = useForm({
     name: "",
+    lastname: "",
     email: "",
     rut: "",
     password: "",
   });
 
-  const { name, email, rut, password } = values;
+  const { name, lastname, email, rut, password } = values;
   const dispatch = useDispatch();
   const handleOnSubmit = (ev) => {
     ev.preventDefault();
@@ -96,6 +97,35 @@ const ModalCreateProfile = ({ isOpen, handleOnClose }) => {
               />
             </Box>
             <Box
+            my={2}
+              sx={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <Typography
+                variant="h6"
+                component="h6"
+                textAlign="center"
+                sx={{ color: "#fff" }}
+              >
+                Apellido
+              </Typography>
+              <TextField
+                required
+                size="small"
+                sx={textFields}
+                id="outlined-basic"
+                label="Apellido"
+                variant="outlined"
+                name="lastname"
+                value={lastname}
+                onChange={handleInputChange}
+              />
+            </Box>
+            <Box
               my={2}
               sx={{
                 display: "flex",
@@ -128,7 +158,7 @@ const ModalCreateProfile = ({ isOpen, handleOnClose }) => {
                 }}
               >
                 <MenuItem value="">
-                  <em>None</em>
+                  <em>Rol</em>
                 </MenuItem>
                 <MenuItem value={1}>Profesor</MenuItem>
                 <MenuItem value={2}>Estudiante</MenuItem>

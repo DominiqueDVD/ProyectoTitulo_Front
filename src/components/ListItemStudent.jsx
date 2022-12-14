@@ -25,6 +25,7 @@ const ListItemStudent = ({
       >
         <Typography variant="h6" component="p">
           {data.name}
+          {data.lastname}
         </Typography>
       </ListItemButton>
 
@@ -47,6 +48,7 @@ ListItemStudent.propTypes = {
     student_id: PropTypes.number,
     email: PropTypes.string,
     name: PropTypes.string,
+    lastname: PropTypes.string,
     rut: PropTypes.string,
     rol: PropTypes.number,
   }).isRequired,

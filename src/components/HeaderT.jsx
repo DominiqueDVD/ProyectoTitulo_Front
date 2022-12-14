@@ -31,7 +31,7 @@ const HeaderT = ({ dataRol }) => {
         }}
       >
         <Avatar
-          alt={dataRol?.name}
+          alt={dataRol?.name + dataRol?.lastname}
           sx={{
             marginRight: "10px",
           }}
@@ -49,7 +49,7 @@ const HeaderT = ({ dataRol }) => {
             WebkitBackgroundClip: "text",
           }}
         >
-          {dataRol?.name}
+          {dataRol?.name+" "+dataRol?.lastname}
         </Typography>
       </Box>
       <Box>

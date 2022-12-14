@@ -31,8 +31,9 @@ const ModalCreateDocument = ({ isOpen, handleOnClose }) => {
   const [values, handleInputChange, resetValues] = useForm({
     name: "",
     numberQuestions: 0,
+    max_points: 0,
   });
-  const { name, numberQuestions } = values;
+  const { name, numberQuestions, max_points } = values;
 
   const handleOnSubmit = (ev) => {
     ev.preventDefault();
@@ -171,6 +172,37 @@ const ModalCreateDocument = ({ isOpen, handleOnClose }) => {
                   variant="outlined"
                   name="numberQuestions"
                   value={numberQuestions}
+                  onChange={handleInputChange}
+                />
+              </Box>
+            )}
+
+{type === 1 && (
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  marginY: "20px",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  component="h6"
+                  textAlign="center"
+                  sx={{ color: "#fff" }}
+                >
+                  Puntaje total
+                </Typography>
+                <TextField
+                  size="small"
+                  required
+                  type="number"
+                  sx={textFields}
+                  id="outlined-basic"
+                  variant="outlined"
+                  name="max_points"
+                  value={max_points}
                   onChange={handleInputChange}
                 />
               </Box>

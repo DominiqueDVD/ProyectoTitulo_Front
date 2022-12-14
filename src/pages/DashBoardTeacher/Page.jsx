@@ -61,6 +61,15 @@ const Page = ({
                     {data.name}
                   </Typography>
                 </ListItemButton>
+
+                <ListItemButton dense={true}>
+                  <Typography variant="h6" component="p">
+                    {data.carrera}
+                  </Typography>
+                </ListItemButton>
+
+        
+
                 <ListItemButton dense={true}>
                   <Typography variant="h6" component="p">
                     {data.period}

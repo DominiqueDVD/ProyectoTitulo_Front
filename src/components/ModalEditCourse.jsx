@@ -137,7 +137,7 @@ const ModalEditCourse = ({ isOpen, handleOnClose }) => {
                 size="small"
                 sx={textFields}
                 id="outlined-basic"
-                label="Rut"
+                label="Periodo"
                 variant="outlined"
                 value={state?.period}
                 onChange={handleChange}

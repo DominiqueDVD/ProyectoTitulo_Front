@@ -27,8 +27,9 @@ const ModalCreateCourse = ({ isOpen, handleOnClose, teacher }) => {
   const [values, handleInputChange, resetValues] = useForm({
     name: "",
     period: "",
+    carrera: "", 
   });
-  const { name, period } = values;
+  const { name,  period, carrera} = values;
 
   const handleOnSubmit = (ev) => {
     ev.preventDefault();
@@ -60,6 +61,8 @@ const ModalCreateCourse = ({ isOpen, handleOnClose, teacher }) => {
             onSubmit={(ev) => handleOnSubmit(ev)}
             style={{ alignSelf: "center" }}
           >
+            
+
             <Box
               sx={{
                 display: "flex",
@@ -102,7 +105,7 @@ const ModalCreateCourse = ({ isOpen, handleOnClose, teacher }) => {
                 textAlign="center"
                 sx={{ color: "#fff" }}
               >
-                Periodo curso
+                Periodo
               </Typography>
               <TextField
                 required
@@ -116,6 +119,39 @@ const ModalCreateCourse = ({ isOpen, handleOnClose, teacher }) => {
                 onChange={handleInputChange}
               />
             </Box>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginY: "20px",
+              }}
+            >
+              <Typography
+                variant="h6"
+                component="h6"
+                textAlign="center"
+                sx={{ color: "#fff" }}
+              >
+                Carrera
+              </Typography>
+              <TextField
+                required
+                size="small"
+                sx={textFields}
+                id="outlined-basic"
+                label="Carrera"
+                variant="outlined"
+                name="carrera"
+                value={carrera}
+                onChange={handleInputChange}
+              />
+            </Box>
+
+
+         
+
+
             <Box mt={4} mb={3} sx={boxButton}>
               <Button
                 type="submit"
