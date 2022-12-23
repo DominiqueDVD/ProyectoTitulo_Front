@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const BASE_URL = "https://proyectotitulo.herokuapp.com";
+export const BASE_URL = "https://proyectotitulo.herokuapp.com/v1";
 
 const api = axios.create({
   baseURL: BASE_URL,
