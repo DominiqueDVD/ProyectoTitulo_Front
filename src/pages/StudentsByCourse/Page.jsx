@@ -61,6 +61,17 @@ const Page = ({
                     {data.name}
                   </Typography>
                 </ListItemButton>
+                
+                <ListItemButton
+                  sx={{
+                    width: "70%",
+                  }}
+                  dense={true}
+                >
+                  <Typography variant="h6" component="p">
+                    {data.rut}
+                  </Typography>
+                </ListItemButton>
 
                 <ButtonGroup
                   variant="contained"
@@ -85,7 +96,7 @@ const Page = ({
           variant="contained"
           onClick={() => handleCreate()}
         >
-          Agregar Estudiante
+          Agregar Estudiantes
         </Button>
         {fragmentModals}
       </Box>

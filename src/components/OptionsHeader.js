@@ -14,9 +14,12 @@ import {
 
 export const OptionsAdmin = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   return (
     <>
+      <Button onClick={() => navigate("/")}>Perfiles</Button>
+      <Button onClick={() => navigate("/careers")}>Carreras</Button>
+      <Button onClick={() => navigate("/periods")}>Periodos</Button>
       <Button
         sx={{ marginLeft: "10px" }}
         variant="contained"

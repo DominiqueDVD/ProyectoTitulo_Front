@@ -1,6 +1,6 @@
 import api from "../../api/api";
 import { types } from "../types/types";
-import moment from "moment";
+
 import {
   closeModalChangePass,
   ResetPass,

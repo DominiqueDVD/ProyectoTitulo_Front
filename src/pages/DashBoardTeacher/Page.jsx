@@ -64,7 +64,7 @@ const Page = ({
 
                 <ListItemButton dense={true}>
                   <Typography variant="h6" component="p">
-                    {data.carrera}
+                    {data.career}
                   </Typography>
                 </ListItemButton>
 

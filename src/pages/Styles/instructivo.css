@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+
+
+.tittleInstruc{
+    color: white;
+    font-family: 'PT Sans Narrow', sans-serif;
+    padding-bottom: 20px;
+  
+}
+.instrucciones {
+    color: white;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size:large;
+
+    padding-bottom: 20px;
+}
+.big{
+margin-left: 200px;
+width: 500px;
+height: 700px;
+
+    background-color: white;
+}
+.preguntas{
+    margin-top: 10px;
+    padding-bottom: 20px;
+    margin-left: 10px;
+}
+.preguntas1{
+   padding-top: 10px;
+   justify-content: center;
+   text-align: center;
+}

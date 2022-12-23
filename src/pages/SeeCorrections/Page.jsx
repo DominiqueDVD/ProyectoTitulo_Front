@@ -32,11 +32,11 @@ const Page = ({ data, handleSeeExam, score, exam }) => {
           justifyContent: "center",
         }}
       >
-        <object data={exam} type="application/pdf" width="40%" height="100%">
-          <p>
-            Alternative text - include a link
-            <a href={exam}>to the PDF!</a>
-          </p>
+       <object data={exam} type="application/pdf" width="30%" height="100%">
+          <Typography variant="h6" component="h6">
+            No se pudo mostrar el exam
+            <a href={exam}>Ir al examen</a>
+          </Typography>
         </object>
         <List
           sx={{
@@ -67,78 +67,36 @@ const Page = ({ data, handleSeeExam, score, exam }) => {
                   </Typography>
                   <Box>
                     <TextField
-                      mx={2}
+                 size="small"
                       id="standard-basic"
                       label={`Respuesta Pregunta ${data.question_id}`}
                       multiline
-                      maxRows={4}
+                     
                       variant="outlined"
                       disabled
                       value={data.answer_text}
                     />
-                    {data.is_correct === 1 ? (
-                      <Button disabled startIcon={<CheckIcon />}></Button>
-                    ) : (
-                      <Button disabled startIcon={<CloseIcon />}></Button>
-                    )}
+                     <TextField
+                      size="small"
+                      id="standard-basic"
+                      label={`Comentario Pregunta ${data.question_id}`}
+                      multiline
+                      variant="outlined"
+                      disabled
+                      value={data.comment}
+                    />
+                    <TextField
+                      size="small"
+                      id="standard-basic"
+                      label={`Puntaje Pregunta ${data.question_id}`}
+                      multiline
+                      variant="outlined"
+                      disabled
+                      value={data.score}
+                    />
+                   
                   </Box>
-                  <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  marginY: "20px",
-                }}
-              >
-                <Typography
-                  variant="h6"
-                  component="h6"
-                  textAlign="center"
-                  sx={{ color: "#fff" }}
-                >
-                 Puntuación
-                </Typography>
-                <TextField
-                 
-                 mx={2}
-                 id="standard-basic"
-                 label={`Puntuación Pregunta ${data.question_id}`}
-                 multiline
-                 maxRows={4}
-                 variant="outlined"
-                 disabled
-                 value={data.answer_text}
-                />
-              </Box>
-              <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                marginY: "20px",
-              }}
-            >
-              <Typography
-                variant="h6"
-                component="h6"
-                textAlign="center"
-                sx={{ color: "#fff" }}
-              >
-                Nombre
-              </Typography>
-              <TextField
-         
-         mx={2}
-         id="standard-basic"
-         label={`Respuesta Pregunta ${data.question_id}`}
-         multiline
-         maxRows={4}
-         variant="outlined"
-         disabled
-         value={data.answer_text}
-                
-              />
-            </Box>
+            
                 </ListItem>
               );
             })
@@ -155,7 +113,7 @@ const Page = ({ data, handleSeeExam, score, exam }) => {
               required
               type="number"
               min="10"
-              max="50"
+            
               variant="outlined"
               size="small"
               placeholder="Calificación"

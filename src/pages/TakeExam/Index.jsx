@@ -12,7 +12,7 @@ import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import GoogleIcon from "@mui/icons-material/Google";
 import moment from "moment";
-
+import swal from "sweetalert";
 const IndexTakeExam = () => {
   const [init_date, setInit_date] = useState(null);
   const [fields, setFields] = useState([]);
@@ -22,12 +22,9 @@ const IndexTakeExam = () => {
   const { isOpen, handleOpenModal, handleCloseModal } = useModal(false);
   const [inputRecord, setInputRecord] = useState("");
   const [values, handleInputChange] = useForm({});
-  const {
-    transcript,
-    listening,
-    resetTranscript,
-    browserSupportsSpeechRecognition,
-  } = useSpeechRecognition();
+  const [temporaryResponses, setTemporaryResponses] = useState([]);
+  const { transcript, browserSupportsSpeechRecognition } =
+    useSpeechRecognition();
 
   const handleSeeExam = () => {
     window.open(exam.link);
@@ -51,18 +48,23 @@ const IndexTakeExam = () => {
     let i = 1;
     for (const value in values) {
       if (value !== "") {
-        arrayTemp.push({
-          question_id: i,
-          answer_text: values[value],
-        });
+        if (values[value] !== "") {
+          arrayTemp.push({
+            question_id: i,
+            answer_text: values[value],
+          });
+        }
         i++;
       }
     }
+    setTemporaryResponses(arrayTemp);
+  };
 
+  const readyToSendResponses = () => {
     dispatch(
       StartSendExamAnswers(
         exam.exam_id,
-        JSON.stringify(arrayTemp),
+        JSON.stringify(temporaryResponses),
         jwt,
         init_date
       )
@@ -97,7 +99,25 @@ const IndexTakeExam = () => {
       },
     });
   }, [transcript]);
-
+  useEffect(() => {
+    if (fields.length !== 0) {
+      if (temporaryResponses.length < fields.length) {
+        swal({
+          title: `Atención`,
+          icon: "warning",
+          text: `¡Desea enviar el examen sin responder todas las preguntas!`,
+          buttons: ["Cancelar", true],
+        }).then((value) => {
+          if (value) {
+            readyToSendResponses();
+          }
+        });
+      } else {
+        readyToSendResponses();
+      }
+      console.log(temporaryResponses);
+    }
+  }, [temporaryResponses]);
   if (!browserSupportsSpeechRecognition) {
     return (
       <>

@@ -1,5 +1,5 @@
 import { types } from "../types/types";
-
+import { ActionTypes } from "@mui/base";
 const initialState = {
   err: null,
   message: "",
@@ -29,6 +29,9 @@ const initialState = {
   dataStudentsByCourse: [],
   datapendingExam: [],
   dataAnswerExam: [],
+  dataStudentWithoutCourse: [],
+  periods: [],
+  careers: [],
   dataFiltered: [],
 };
 
@@ -117,7 +120,27 @@ export const teacherReducer = (state = initialState, action) => {
         ...state,
         dataFiltered: [],
       };
-
+      case types.teacherGetStudentWithoutCourse:
+        return {
+          ...state,
+          dataStudentWithoutCourse: action.payload.data,
+          err: action.payload.err,
+          message: action.payload.message,
+        };
+      case types.teacherGetPeriods:
+        return {
+          ...state,
+          err: action.payload.err,
+          message: action.payload.message,
+          periods: action.payload.data,
+        };
+      case types.teacherGetCareers:
+        return {
+          ...state,
+          err: action.payload.err,
+          message: action.payload.message,
+          careers: action.payload.data,
+        };
     default:
       return state;
   }
