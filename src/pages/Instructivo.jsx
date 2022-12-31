@@ -36,7 +36,7 @@ const Instructivo = () => {
               contenido
             </li>
             <li className="instrucciones">
-              Agregue toda la información iportante junto a su encabezado
+              Agregue toda la información importante junto a su encabezado
               (ejemplo: puntaje)
             </li>
             <li className="instrucciones">
