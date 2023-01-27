@@ -31,7 +31,7 @@ const HeaderT = ({ dataRol }) => {
         }}
       >
         <Avatar
-          alt={dataRol?.name + dataRol?.lastname}
+          alt={dataRol?.name }
           sx={{
             marginRight: "10px",
           }}
