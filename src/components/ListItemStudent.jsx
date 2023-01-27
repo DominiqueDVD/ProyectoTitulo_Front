@@ -24,8 +24,7 @@ const ListItemStudent = ({
         dense={true}
       >
         <Typography variant="h6" component="p">
-          {data.name}
-          {data.lastname}
+        {`${data.name}  ${data.lastname} `}
         </Typography>
       </ListItemButton>
 
