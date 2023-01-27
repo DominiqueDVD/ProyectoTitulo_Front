@@ -49,7 +49,7 @@ const HeaderT = ({ dataRol }) => {
             WebkitBackgroundClip: "text",
           }}
         >
-          {dataRol?.name+" "+dataRol?.lastname}
+          {dataRol?.name}
         </Typography>
       </Box>
       <Box>
