@@ -61,6 +61,15 @@ const Page = ({
                       data.rol === 1 ? "Profesor" : "Estudiante"
                     }`}
                   </Typography>
+                 
+                </ListItemButton>
+                <ListItemButton
+                  sx={{
+                    width: "70%",
+                  }}
+                  dense={true}
+                >
+            
                   <Typography variant="h6" component="p">
                     {`${data.name}  ${data.lastname} 
                       
