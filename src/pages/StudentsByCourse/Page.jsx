@@ -58,12 +58,23 @@ const Page = ({
                   dense={true}
                 >
                   <Typography variant="h6" component="p">
-                  {`${data.name}  ${data.lastname} 
+                  {`${data.name}  
                       
                       `}
                   </Typography>
                 </ListItemButton>
-                
+                <ListItemButton
+                  sx={{
+                    width: "70%",
+                  }}
+                  dense={true}
+                >
+                  <Typography variant="h6" component="p">
+                 {data.lastname} 
+                      
+                      
+                  </Typography>
+                </ListItemButton>
                 <ListItemButton
                   sx={{
                     width: "70%",
