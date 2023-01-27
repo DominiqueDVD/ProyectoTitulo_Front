@@ -44,7 +44,7 @@ const Page = ({
           data.map((data) => {
             return (
               <ListItem
-                key={`${data.id}-${data.name}`}
+                key={`${data.id}-${data.name}-${data.lastname}`}
                 sx={{
                   borderBottom: "2px solid #DFDFDF",
                   display: "flex",
@@ -58,7 +58,7 @@ const Page = ({
                   dense={true}
                 >
                   <Typography variant="h6" component="p">
-                  {`${data.name}  ${data.rut} 
+                  {`${data.name}  ${data.lastname} 
                       
                       `}
                   </Typography>
