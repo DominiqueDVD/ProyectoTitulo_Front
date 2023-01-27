@@ -87,19 +87,20 @@ const ContainerFiltersForAdmin = () => {
             fullWidth
           >
             <TextField
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
               size="small"
               label="Ingrese nombre de usuario"
               variant="filled"
               name="name"
               value={name}
               onChange={handleInputChange}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
+              
             />
           </FormControl>
         </Box>
