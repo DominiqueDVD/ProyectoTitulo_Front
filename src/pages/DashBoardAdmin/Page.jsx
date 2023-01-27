@@ -57,7 +57,7 @@ const Page = ({
                   dense={true}
                 >
                   <Typography variant="h6" component="p">
-                    {`${data.name} - (${
+                    {`${data.name} - ${data.lastname} - (${
                       data.rol === 1 ? "Profesor" : "Estudiante"
                     })`}
                   </Typography>
