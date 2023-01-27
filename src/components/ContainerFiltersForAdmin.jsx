@@ -56,7 +56,8 @@ const ContainerFiltersForAdmin = () => {
           }}
         >
           <FormControl size="small" fullWidth>
-            <InputLabel id="rol-label">Filtrar por</InputLabel>
+            
+          
             <Select
               fullWidth
               name="rol"
