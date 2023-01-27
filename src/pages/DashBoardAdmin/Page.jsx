@@ -76,6 +76,19 @@ const Page = ({
                     `}
                   </Typography>
                 </ListItemButton>
+                <ListItemButton
+                  sx={{
+                    width: "70%",
+                  }}
+                  dense={true}
+                >
+            
+                  <Typography variant="h6" component="p">
+                    {`${data.rut} 
+                      
+                    `}
+                  </Typography>
+                </ListItemButton>
                 <ButtonGroup
                   variant="contained"
                   aria-label="outlined primary button group"
