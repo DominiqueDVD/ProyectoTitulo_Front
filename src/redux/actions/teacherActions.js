@@ -174,6 +174,7 @@ export const StartAddDocumentsByCourse = (
         let { data } = await api.post("/api/document", formData, {
           params: {
             name: values.name,
+            description: values.description,
             course_id: courseId,
           },
           headers: {
@@ -185,6 +186,7 @@ export const StartAddDocumentsByCourse = (
         let { data } = await api.post("/api/exam", formData, {
           params: {
             name: values.name,
+            description: values.description,
             course_id: courseId,
             num_of_questions: values.numberQuestions,
             max_score: values.maxScore,

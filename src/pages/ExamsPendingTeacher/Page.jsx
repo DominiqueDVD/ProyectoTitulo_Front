@@ -15,7 +15,17 @@ import EmptyListParagraph from "../../components/EmptyListParagraph";
 const Page = ({ data, handleExamcorrected, fragementModals }) => {
   const { loading } = useSelector((s) => s?.uiReducer);
   return (
-    <>
+    <> <List
+    sx={{
+    
+      color:"white"
+
+    }}
+  >
+  <Button a href="javascript:history.back()" color="inherit" >
+               Volver Atrás
+  </Button>
+  </List>
       <FiltersBypendingExam />
       <List
         sx={{

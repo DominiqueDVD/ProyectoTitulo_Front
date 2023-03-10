@@ -67,6 +67,34 @@ const Page = ({
             textAlign="center"
             sx={{ color: "#fff" }}
           >
+            Descripción
+          </Typography>
+          <TextField
+            size="small"
+            required
+            sx={textFields}
+            id="outlined-basic"
+            label="Descripción"
+            variant="outlined"
+            name="description"
+            value={values?.description}
+            onChange={handleInputChange}
+          />
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginY: "20px",
+          }}
+        >
+          <Typography
+            variant="h6"
+            component="h6"
+            textAlign="center"
+            sx={{ color: "#fff" }}
+          >
             Tipo
           </Typography>
           <Select
@@ -88,7 +116,7 @@ const Page = ({
               <em></em>
             </MenuItem>
             <MenuItem value={0}>Documento</MenuItem>
-            <MenuItem value={1}>Examen</MenuItem>
+            <MenuItem value={1}>Evaluación</MenuItem>
           </Select>
         </Box>
         {type === 1 && (
@@ -107,7 +135,7 @@ const Page = ({
                 textAlign="center"
                 sx={{ color: "#fff" }}
               >
-                # preguntas
+                Cantidad de preguntas
               </Typography>
               <TextField
                 size="small"
@@ -170,12 +198,14 @@ const Page = ({
           </Typography>
           <Button
             sx={{
-              minWidth: 230,
+              minWidth: 350,
+              color: "black",
+              background: "white"
             }}
             variant="contained"
             component="label"
           >
-            {!document ? "Upload File" : document.name}
+            {!document ? "Subir archivo" : document.name}
             <input
               required
               accept=".pdf"
@@ -189,14 +219,16 @@ const Page = ({
         <Box mt={4} mb={3} sx={boxButton}>
           <Button
             type="submit"
-            sx={{ backgroundColor: "#fff", marginX: "10px" }}
-            variant="outlined"
+            sx={{  color: "black",
+            background: "white", marginX: "10px" }}
+            variant="contained"
           >
             Guardar
           </Button>
           <Button
-            sx={{ backgroundColor: "#fff", marginX: "10px" }}
-            variant="outlined"
+            sx={{ color: "black",
+            background: "white", marginX: "10px" }}
+            variant="contained"
             onClick={handleOnClose}
           >
             Cancelar

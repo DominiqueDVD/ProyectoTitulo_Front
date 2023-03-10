@@ -1,9 +1,12 @@
 import React from "react";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
-
+import { useState } from 'react';
+import { useEffect } from 'react';
+import randomColor from "randomcolor";
 import { StartLogout } from "../redux/actions/authActions";
 import { useNavigate } from "react-router-dom";
+
 import {
   openModalSearchContens,
   openModalSearchStudent,
@@ -15,6 +18,7 @@ import {
 export const OptionsAdmin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   return (
     <>
       <Button onClick={() => navigate("/")}>Perfiles</Button>
@@ -66,11 +70,24 @@ export const OptionsTeacher = () => {
 export const OptionsStudents = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+ 
+
+
 
   return (
     <>
-      <Button onClick={() => navigate("/")}>Cursos</Button>
-      <Button onClick={() => navigate("/allDocuments")}>Material</Button>
+
+      <Button onClick={() => {
+      navigate("/");
+     
+    }}
+      >Cursos</Button>
+
+      <Button  onClick={() => {
+        
+        navigate("/allDocuments")
+      }}
+        >Material</Button>
       <Button onClick={() => navigate("/allExams")}>Evaluación</Button>
       <Button onClick={() => dispatch(openModalSearchExamCorrected())}>
         Correción
@@ -85,6 +102,7 @@ export const OptionsStudents = () => {
       >
         Cerrar Sesion
       </Button>
+      
     </>
   );
 };

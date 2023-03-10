@@ -27,6 +27,14 @@ export const studentReducer = (state = initialState, action) => {
         message: action.payload.message,
         dataCourses: action.payload.data,
       };
+     
+      case types.studentCourseById:
+        return {
+          ...state,
+          err: action.payload.err,
+          message: action.payload.message,
+          dataCourses: action.payload.data,
+        };
     case types.studentGetDocumentsByCourse:
       return {
         ...state,

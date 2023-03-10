@@ -12,6 +12,7 @@ const IndexModalCreateDocument = ({ isOpen, handleOnClose }) => {
   const { course } = useSelector((s) => s?.teacherReducer);
   const [values, handleInputChange, resetValues] = useForm({
     name: "",
+    description: "",
     numberQuestions: 0,
     maxScore: 0,
   });

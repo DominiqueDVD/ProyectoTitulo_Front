@@ -53,17 +53,21 @@ const ContainerFiltersForAdmin = () => {
         <Box
           sx={{
             width: "40%",
+            
+           
           }}
         >
-          <FormControl size="small" fullWidth>
+          <FormControl size="small" fullWidth  >
             
-            <InputLabel id="rol-label">Filtrar por</InputLabel>
+            <InputLabel  id="rol-label" >Filtrar según rol</InputLabel>
             <Select
+            
               fullWidth
               name="rol"
               value={rol}
               labelId="rol-label"
-              label="Filtrar por"
+              
+          
               onChange={handleInputChange}
               sx={{
                 backgroundColor: "#fff",

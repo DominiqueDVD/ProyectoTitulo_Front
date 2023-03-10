@@ -15,6 +15,16 @@ const Page = ({ data, handleSeeMaterial }) => {
   const { loading } = useSelector((s) => s?.uiReducer);
   return (
     <>
+      <Typography
+        sx={{
+          color: "#fff",
+          marginRight: "10px",
+        }}
+        variant="h5"
+        component="span"
+      >
+        Listado de cursos
+      </Typography>
       <List
         sx={{
           backgroundColor: "#fff",

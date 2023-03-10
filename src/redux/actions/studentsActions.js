@@ -26,6 +26,24 @@ const GetAllStudents = (students) => ({
   payload: students,
 });
 
+export const StartGetCourseById = (jwt, courseId) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await api.get(`/api/course/${courseId}`, {
+        headers: { Authorization: `Bearer ${jwt}` },
+      });
+      dispatch(GetCourseById(data.data));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+const GetCourseById = (course) => ({
+  type: types.studentCourseById,
+  payload: course,
+});
+
 export const StartGetMyCourses = (jwt) => {
   return async (dispatch) => {
     try {

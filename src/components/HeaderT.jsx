@@ -2,7 +2,7 @@ import { Avatar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { OptionsAdmin, OptionsStudents, OptionsTeacher } from "./OptionsHeader";
-
+import logo2 from '../assets/logo2.png'
 const HeaderT = ({ dataRol }) => {
   const OptionsRol = () => {
     if (dataRol.rol === 0) {
@@ -30,12 +30,7 @@ const HeaderT = ({ dataRol }) => {
           alignItems: "center",
         }}
       >
-        <Avatar
-          alt={dataRol?.name }
-          sx={{
-            marginRight: "10px",
-          }}
-        />
+     <img src={logo2} alt="" width={"120px"} />
         <Typography
           variant="h6"
           component="h6"
@@ -47,6 +42,7 @@ const HeaderT = ({ dataRol }) => {
               "linear-gradient(90deg, #4B46B8 11.75%, #03A7C0 78.25%)",
             WebkitTextFillColor: "transparent",
             WebkitBackgroundClip: "text",
+            marginLeft: "50px"
           }}
         >
           {dataRol?.name}

@@ -28,7 +28,7 @@ const Page = ({ isOpen, handleOnClose, nameExam }) => {
             textAlign="center"
             sx={titleModal}
           >
-            Examen de {nameExam} respondido con exito
+            {nameExam} respondido con exito
           </Typography>
           <img src={successImg}></img>
         </Box>

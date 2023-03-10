@@ -31,6 +31,7 @@ export const types = {
   teacherGetCareers: "[TEACHER] teacherGetCareers",
   //TODO: STUDENT
   studentGetAllStudents: "[STUDENT] GetAllStudents",
+  studentCourseById: "[STUDENT] CourseById",
   studentGetMyCourses: "[STUDENT] GetMyCourse",
   studentGetDocumentsByCourse: "[STUDENT] GetMaterialOfCourse",
   studentChooseExam: "[STUDENT] ChoosenExam",

@@ -110,7 +110,7 @@ const Page = ({
             }}
           >
             <MenuItem value="">
-              <em>None</em>
+              <em>Profesor/Estudiante</em>
             </MenuItem>
             <MenuItem value={1}>Profesor</MenuItem>
             <MenuItem value={2}>Estudiante</MenuItem>
@@ -138,7 +138,7 @@ const Page = ({
             name="rut"
             sx={textFields}
             id="outlined-basic"
-            label="Rut"
+            label="11.111.111-1"
             variant="outlined"
             value={values?.rut}
             onChange={handleInputChange}

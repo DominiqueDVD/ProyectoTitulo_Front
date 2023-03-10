@@ -24,7 +24,17 @@ const Page = ({
 }) => {
   const { loading } = useSelector((s) => s?.uiReducer);
   return (
-    <>
+    <> <List
+    sx={{
+    
+      color:"white"
+
+    }}
+  >
+  <Button a href="javascript:history.back()" color="inherit" >
+               Volver Atrás
+  </Button>
+  </List>
       <FiltersByStudents />
       <List
         sx={{
@@ -58,9 +68,7 @@ const Page = ({
                   dense={true}
                 >
                   <Typography variant="h6" component="p">
-                  {`${data.name}  
-                      
-                      `}
+                  {`${data.name}  `}
                   </Typography>
                 </ListItemButton>
                

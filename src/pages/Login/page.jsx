@@ -29,7 +29,7 @@ const Page = ({ values, loading, handleOnSubmit, handleInputChange }) => (
           fontWeight: 700,
         }}
       >
-        Bienvenid@ a Incloodle
+        Bienvenid@ 
       </Typography>
       <Typography
         variant="h6"

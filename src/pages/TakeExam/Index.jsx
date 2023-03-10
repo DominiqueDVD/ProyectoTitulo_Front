@@ -17,6 +17,7 @@ const IndexTakeExam = () => {
   const [init_date, setInit_date] = useState(null);
   const [fields, setFields] = useState([]);
   const { exam } = useSelector((s) => s?.studentReducer);
+  const { dataCourses } = useSelector((s) => s?.studentReducer);
   const { jwt } = useSelector((s) => s?.authReducer);
   const dispatch = useDispatch();
   const { isOpen, handleOpenModal, handleCloseModal } = useModal(false);
@@ -168,6 +169,8 @@ const IndexTakeExam = () => {
         handleReadAnswer={handleReadAnswer}
         handleSendExam={handleSendExam}
         exam={exam.link}
+        nameExam={exam.name}
+        courseName={dataCourses.name}
         fragementModals={
           <>
             <IndexSucessResExam

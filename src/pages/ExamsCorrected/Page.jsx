@@ -14,7 +14,27 @@ import EmptyListParagraph from "../../components/EmptyListParagraph";
 const Page = ({ data, handleSeeCorrections }) => {
   const { loading } = useSelector((s) => s?.uiReducer);
   return (
-    <>
+    <> <List
+    sx={{
+    
+      color:"white"
+
+    }}
+  >
+  <Button a href="javascript:history.back()" color="inherit" >
+               Volver Atrás
+  </Button>
+  </List>
+  <Typography
+        sx={{
+          color: "#fff",
+          marginRight: "10px",
+        }}
+        variant="h5"
+        component="span"
+      >
+        Correcciones
+      </Typography>
       <List
         sx={{
           backgroundColor: "#fff",

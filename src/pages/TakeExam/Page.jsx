@@ -7,72 +7,90 @@ import {
   ListItem,
   TextField,
   Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
-import React from "react";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import OutboxIcon from "@mui/icons-material/Outbox";
-import StopIcon from "@mui/icons-material/Stop";
-import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
-import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+  ListItemButton
+} from '@mui/material'
+import { Box } from '@mui/system'
+import { useSelector } from "react-redux";
+import React from 'react'
+import VisibilityIcon from '@mui/icons-material/Visibility'
+import OutboxIcon from '@mui/icons-material/Outbox'
+import StopIcon from '@mui/icons-material/Stop'
+import EmptyListParagraph from "../../components/EmptyListParagraph";
+import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice'
+import VolumeUpIcon from '@mui/icons-material/VolumeUp'
 
 const Page = ({
   data,
   handleSeeExam,
   values,
   handleSendExam,
+  CircularProgress,
   fragementModals,
   handleStartRecord,
   handleStopRecord,
   handleReadAnswer,
   handleInputChange,
-  exam,
+  nameExam,
+  courseName,
+  exam
 }) => {
+  const { loading } = useSelector((s) => s?.uiReducer);
   return (
     <>
+ 
+      <List
+        sx={{
+          color: 'white',
+        }}
+      >
+    
+        <Button a href="javascript:history.back()" color="inherit">
+          Volver Atrás
+        </Button>
+        <Typography variant="h5" component="p">
+                    {nameExam}
+                    
+        </Typography>
+      </List>
       <Box
         sx={{
-          backgroundColor: "#fff",
-          borderRadius: "10px",
-          marginY: "10px",
-          overflowX: "hidden",
-          overflowY: "scroll",
-          height: "80%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
+          backgroundColor: '#fff',
+          borderRadius: '10px',
+          marginY: '10px',
+          overflowX: 'hidden',
+          overflowY: 'scroll',
+          height: '80%',
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
         }}
       >
         <object data={exam} type="application/pdf" width="50%" height="100%">
-        <p>
-            Alternative text - include a link
-            <a href="https://africau.edu/images/default/sample.pdf">
-              to the PDF!
-            </a>
+          <p>
+            <a href="https://africau.edu/images/default/sample.pdf"></a>
           </p>
           <Typography variant="h6" component="h6">
-            No se pudo mostrar el exam
-            <a href={exam}>Ir al examen</a>
+            La evaluación no se encuentra disponible
           </Typography>
         </object>
         <List
           sx={{
-            overflowX: "hidden",
-            height: "100%%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
+            overflowX: 'hidden',
+            height: '100%%',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
           }}
         >
           {data.map((field) => {
-            let name = `response${field}`;
+            let name = `response${field}`
             return (
               <ListItem
                 key={field}
                 sx={{
-                  display: "flex",
-                  overflow: "hidden",
-                  justifyContent: "center",
+                  display: 'flex',
+                  overflow: 'hidden',
+                  justifyContent: 'center',
                 }}
               >
                 <Typography mx={10} component="h6" variant="h6">
@@ -88,13 +106,13 @@ const Page = ({
                   multiline
                   maxRows={4}
                   variant="standard"
-                  value={values?.[name] ?? ""}
+                  value={values?.[name] ?? ''}
                 />
                 <ButtonGroup>
                   <IconButton
                     sx={{
-                      background: "#1976d2",
-                      marginX: "5px",
+                      background: '#1976d2',
+                      marginX: '5px',
                     }}
                     onClick={() => handleStartRecord(name)}
                   >
@@ -102,8 +120,8 @@ const Page = ({
                   </IconButton>
                   <IconButton
                     sx={{
-                      background: "#F80000",
-                      marginX: "5px",
+                      background: '#F80000',
+                      marginX: '5px',
                     }}
                     onClick={() => handleStopRecord()}
                   >
@@ -111,8 +129,8 @@ const Page = ({
                   </IconButton>
                   <IconButton
                     sx={{
-                      background: "#F8F32B",
-                      marginX: "5px",
+                      background: '#F8F32B',
+                      marginX: '5px',
                     }}
                     onClick={() => handleReadAnswer(name)}
                   >
@@ -120,11 +138,11 @@ const Page = ({
                   </IconButton>
                 </ButtonGroup>
               </ListItem>
-            );
+            )
           })}
         </List>
       </Box>
-      <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
         <ButtonGroup variant="contained">
           <Button startIcon={<OutboxIcon />} onClick={() => handleSendExam()}>
             ENVIAR RESPUESTAS
@@ -139,7 +157,7 @@ const Page = ({
         {fragementModals}
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page

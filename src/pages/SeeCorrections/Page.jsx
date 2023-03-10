@@ -34,8 +34,8 @@ const Page = ({ data, handleSeeExam, score, exam }) => {
       >
        <object data={exam} type="application/pdf" width="30%" height="100%">
           <Typography variant="h6" component="h6">
-            No se pudo mostrar el exam
-            <a href={exam}>Ir al examen</a>
+            No se pudo mostrar la evaluación
+            <a href={exam}>Ir a la evaluación</a>
           </Typography>
         </object>
         <List

@@ -23,8 +23,19 @@ const Page = ({
 }) => {
   const { loading } = useSelector((s) => s?.uiReducer);
   return (
-    <>
+    <> <List
+    sx={{
+    
+      color:"white"
+
+    }}
+  >
+  <Button a href="javascript:history.back()" color="inherit" >
+               Volver Atrás
+  </Button>
+  </List>
       <FiltersByDocuments />
+      
       <List
         sx={{
           backgroundColor: "#fff",
@@ -35,6 +46,7 @@ const Page = ({
           height: "80%",
         }}
       >
+        
         {loading ? (
           <CircularProgress />
         ) : data.length === 0 ? (
@@ -43,7 +55,7 @@ const Page = ({
           data.map((data) => {
             return (
               <ListItem
-                key={`${data.id}-${data.name}`}
+                key={`${data.id}-${data.name}-${data.description}`}
                 sx={{
                   borderBottom: "2px solid #DFDFDF",
                   display: "flex",
@@ -58,6 +70,17 @@ const Page = ({
                 >
                   <Typography variant="h6" component="p">
                     {data.name}
+                    
+                  </Typography>
+                </ListItemButton>
+                <ListItemButton
+                  sx={{
+                    width: "70%",
+                  }}
+                  dense={true}
+                >
+                  <Typography variant="h6" component="p">
+                    {data.description}
                   </Typography>
                 </ListItemButton>
 

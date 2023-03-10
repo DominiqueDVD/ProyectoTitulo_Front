@@ -211,15 +211,20 @@ export const FiltersBypendingExam = () => {
         sx={{
           color: "#fff",
           marginRight: "10px",
+          width: "30%",
+          
         }}
         variant="h5"
+   
         component="span"
       >
-        Administrar examenes pendientes
+        Corregir evaluaciones pendientes
+        
       </Typography>
       <Box sx={formFilters}>
         <Box
           sx={{
+           
             width: "50%",
           }}
         >
@@ -238,7 +243,7 @@ export const FiltersBypendingExam = () => {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <SearchIcon />
+                    <SearchIcon /> 
                   </InputAdornment>
                 ),
               }}

@@ -9,7 +9,7 @@ import React, { useEffect } from "react";
 import useForm from "../hooks/useForm";
 import { useDispatch } from "react-redux";
 import { StartLogin } from "../redux/actions/authActions";
-
+import logo from '../assets/logo.png';
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -54,7 +54,7 @@ const Login = () => {
           fontWeight: 700,
         }}
       >
-        Bienvenid@ 
+        Bienvenid@ a Inclubb
       </Typography>
       <Typography
         variant="h6"
@@ -65,9 +65,12 @@ const Login = () => {
           fontWeight: 300,
         }}
       >
-        Plataforma accesible para toma de evaluaciones
+        Plataforma institucional para la toma de evaluaciones accesibles
+       
       </Typography>
+  
       <form
+      
         style={{
           width: "30%",
           display: "flex",
@@ -79,7 +82,8 @@ const Login = () => {
           marginTop: "40px",
         }}
         onSubmit={(ev) => handleOnSubmit(ev)}
-      >
+      >  <img src={logo} width={"200px"}/>
+          
         <Typography
           variant="h4"
           component="h4"
@@ -87,9 +91,12 @@ const Login = () => {
           sx={{
             color: "#000",
             fontWeight: 700,
+            marginTop: 2,
           }}
+          
         >
-          Login
+          
+         
         </Typography>
         <Typography
           variant="h6"
@@ -97,6 +104,7 @@ const Login = () => {
           textAlign={"center"}
           sx={{
             color: "#686666",
+            
           }}
         >
           Ingrese sus Credenciales
@@ -105,11 +113,12 @@ const Login = () => {
           required
           type="email"
           fullWidth
-          label="email"
+          label="Correo"
           id="fullWidth"
           variant="outlined"
           sx={{
-            marginY: "10px",
+            marginY: "40 px",
+            marginTop: 2,
           }}
           name="email"
           value={email}
@@ -119,11 +128,11 @@ const Login = () => {
           fullWidth
           required
           type="password"
-          label="Password"
+          label="Contraseña"
           id="fullWidth"
           variant="outlined"
           sx={{
-            marginY: "10px",
+            marginY: "40px",
           }}
           name="password"
           value={password}
@@ -148,16 +157,23 @@ const Login = () => {
         </Button>
       </form>
       <Typography
-        variant="h6"
-        component="h6"
-        textAlign={"center"}
+        
         sx={{
           marginTop: "40px",
-          fontWeight: 300,
+         
         }}
+        
       >
-       Fomentando la Inclusión
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Escudo_Universidad_del_B%C3%ADo-B%C3%ADo.png" alt="" height={"100px"} />
+        <img width={"100px"} src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9c64cfe3-bb3b-4ae8-b5a6-d2f39d21ff87/d3jme6i-8c702ad4-4b7a-4763-9901-99f8b4f038b0.png/v1/fill/w_600,h_400,strp/fondo_transparente_png_by_imsnowbieber_d3jme6i-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvOWM2NGNmZTMtYmIzYi00YWU4LWI1YTYtZDJmMzlkMjFmZjg3XC9kM2ptZTZpLThjNzAyYWQ0LTRiN2EtNDc2My05OTAxLTk5ZjhiNGYwMzhiMC5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Ymv-MHRcmXXpzmL3f0xZ0mCcyU85lCLnk0jbOnCO8Zg" alt="" />
+        
+        <img src="https://images.genial.ly/5eb58965b464cf6161e2b6ed/a04bdbbc-bce0-4926-8e9d-a7e21d95838a.png" alt="" width={"80px"}/>
+
+
+     
+
       </Typography>
+   
     </Box>
   );
 };
