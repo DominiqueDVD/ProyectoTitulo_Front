@@ -136,14 +136,7 @@ const Page = ({
                   value={values?.[name] ?? ''}
                 />
                 <ButtonGroup  
-                onMouseEnter={() => {
-                      setIsHovering(true);
-                      play(bip);
-                    }}
-                    onMouseLeave={() => {
-                      setIsHovering(false);
-                      stop(bip);
-                    }} isHovering={isHovering}>
+                >
                   <IconButton
                     sx={{
                       background: '#1976d2',
@@ -152,7 +145,14 @@ const Page = ({
                     onClick={() => handleStartRecord(name)}
                    
                   >
-                    <KeyboardVoiceIcon  />
+                    <KeyboardVoiceIcon onMouseEnter={() => {
+                      setIsHovering(true);
+                      play(bip);
+                    }}
+                    onMouseLeave={() => {
+                      setIsHovering(false);
+                      stop(bip);
+                    }} isHovering={isHovering} />
                   </IconButton>
                   <IconButton
                     sx={{
@@ -161,7 +161,14 @@ const Page = ({
                     }}
                    
                   >
-                    <StopIcon  />
+                    <StopIcon  onMouseEnter={() => {
+                      setIsHovering(true);
+                      play(bip);
+                    }}
+                    onMouseLeave={() => {
+                      setIsHovering(false);
+                      stop(bip);
+                    }} isHovering={isHovering}/>
                   </IconButton >
                   <IconButton
                     sx={{
@@ -170,7 +177,14 @@ const Page = ({
                     }}
                     onClick={() => handleReadAnswer(name)}
                   >
-                    <VolumeUpIcon />
+                    <VolumeUpIcon onMouseEnter={() => {
+                      setIsHovering(true);
+                      play(bip);
+                    }}
+                    onMouseLeave={() => {
+                      setIsHovering(false);
+                      stop(bip);
+                    }} isHovering={isHovering}/>
                   </IconButton>
                 </ButtonGroup>
               </ListItem>
