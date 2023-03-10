@@ -85,7 +85,7 @@ const Page = ({ data, handleSeeContens, handleTakeExam, cours }) => {
           data.map((data) => {
             return (
               <ListItem
-                key={`${data.id}-${data.name}-${data.course_id}`}
+                key={`${data.id}-${data.name}-${data.description}`}
                 sx={{
                   borderBottom: "2px solid #DFDFDF",
                   display: "flex",
@@ -100,6 +100,18 @@ const Page = ({ data, handleSeeContens, handleTakeExam, cours }) => {
                 >
                   <Typography variant="h6" component="p">
                     {data.name}
+                    
+                    
+                  </Typography>
+                </ListItemButton>
+                <ListItemButton
+                  sx={{
+                    width: "70%",
+                  }}
+                  dense={true}
+                >
+                  <Typography variant="h6" component="p">
+                    {data.description}
                     
                     
                   </Typography>

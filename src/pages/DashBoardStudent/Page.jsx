@@ -62,6 +62,11 @@ const Page = ({ data, handleSeeMaterial }) => {
                 </ListItemButton>
                 <ListItemButton dense={true}>
                   <Typography variant="h6" component="p">
+                    {data.career}
+                  </Typography>
+                </ListItemButton>
+                <ListItemButton dense={true}>
+                  <Typography variant="h6" component="p">
                     {data.period}
                   </Typography>
                 </ListItemButton>

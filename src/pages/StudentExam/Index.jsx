@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+
 import swal from "sweetalert";
+import { useNavigate, useParams } from "react-router-dom";
 import IndexSucessCorrectionExam from "../../components/ModalSucessCorrectionExam/Index";
 import useForm from "../../hooks/useForm";
 import { useModal } from "../../hooks/useModal";
 import {
+  ChooseDocument,
+  StartGetpendingExam,
   StartEvaluatingAnswer,
   StartGetAnswerExam,
   StartQualification,
@@ -13,6 +16,9 @@ import {
 import Page from "./Page";
 
 const IndexStudentExam = () => {
+  const { datapendingExam, dataFiltered } = useSelector(
+    (s) => s?.teacherReducer
+  );
   const { jwt } = useSelector((s) => s?.authReducer);
   const { dataAnswerExam, conten } = useSelector((s) => s?.teacherReducer);
   const [corrections, setCorrections] = useState([]);
@@ -22,6 +28,7 @@ const IndexStudentExam = () => {
   const [correctionsAnswer, handleCorrectionsAnswer] = useForm({});
   const { qualification } = values;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
   const { isOpen, handleOpenModal, handleCloseModal } = useModal(false);
 
@@ -108,11 +115,20 @@ const IndexStudentExam = () => {
   useEffect(() => {
     addScore();
   }, [correctionsAnswer]);
+  useEffect(() => {
+    dispatch(StartGetpendingExam(jwt, id));
+  }, []);
 
+  const handleExamcorrected = (data) => {
+    dispatch(ChooseDocument(data));
+    navigate(`/studentExam/${data.studentExam_id}`);
+  };
   return (
     <Page
     correctionsAnswer={correctionsAnswer}
     handleCorrectionsAnswer={handleCorrectionsAnswer}
+    data2={dataFiltered.length === 0 ? datapendingExam : dataFiltered}
+    handleExamcorrected={handleExamcorrected}
       exam={conten.link}
       handleOnSubmit={handleOnSubmit}
       data={dataAnswerExam}

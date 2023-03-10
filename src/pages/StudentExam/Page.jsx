@@ -3,6 +3,7 @@ import {
   ButtonGroup,
   CircularProgress,
   List,
+  ListItemButton,
   ListItem,
   TextField,
   Typography,
@@ -22,6 +23,7 @@ const Page = ({
   values,
   handleInputChange,
   data,
+  data2,
   handleSendCorrectionAnswer,
   handleSeeExam,
   handleOnSubmit,
@@ -33,6 +35,57 @@ const Page = ({
   const { loading } = useSelector((s) => s?.uiReducer);
   return (
     <>
+  <List
+    sx={{
+    
+      color:"white"
+
+    }}
+  >
+  <Button a href="javascript:history.back()" color="inherit" >
+               Volver Atrás
+  </Button>
+  <List
+    
+      >
+        {loading ? (
+          <CircularProgress />
+        ) : data2.length === 0 ? (
+          <EmptyListParagraph emptyList={"estudiantes"} />
+        ) : (
+          data2.map((data2) => {
+            return (
+              <ListItem
+                key={`${data2.studentExam_id}-${data2.exam_name}`}
+                sx={{
+                
+                  display: "flex",
+                  overflow: "hidden",
+                }}
+              >
+                <ListItemButton
+                  sx={{
+                    width: "50px",
+                    marginLeft: "-30px"
+                  }}
+                  dense={true}
+                >
+                  <Typography variant="h6" component="p">
+                    Evaluación: {data2.exam_name} 
+                  </Typography>
+                  <Typography mx={10} variant="h6" component="p">
+                    Respuestas de: {data2.student_name}
+                  </Typography>
+                </ListItemButton>
+
+              
+              </ListItem>
+            );
+          })
+        )}
+      </List>
+  </List>
+ 
       <Box
         sx={{
           backgroundColor: "#fff",
@@ -78,7 +131,7 @@ const Page = ({
                     justifyContent: "center",
                   }}
                 >
-                  <Typography mx={2} component="h7" variant="h7">
+                  <Typography mx={5} component="h6" variant="h6">
                     Pregunta {data.question_id}
                   </Typography>
                   <Box

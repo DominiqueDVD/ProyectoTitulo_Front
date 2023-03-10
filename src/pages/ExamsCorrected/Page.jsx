@@ -67,7 +67,7 @@ const Page = ({ data, handleSeeCorrections }) => {
                   dense={true}
                 >
                   <Typography variant="h6" component="p">
-                    Examen: {data.name}
+                    Evaluación: {data.name}
                   </Typography>
                   <Typography mx={10} variant="h6" component="p">
                     Nota: {data.score}

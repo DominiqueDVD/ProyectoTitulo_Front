@@ -37,11 +37,7 @@ const Page = ({ data, handleExamcorrected, fragementModals }) => {
           height: "80%",
         }}
       >
-        {loading ? (
-          <CircularProgress />
-        ) : data.length === 0 ? (
-          <EmptyListParagraph emptyList={"estudiantes"} />
-        ) : (
+        {
           data.map((data) => {
             return (
               <ListItem
@@ -59,7 +55,7 @@ const Page = ({ data, handleExamcorrected, fragementModals }) => {
                   dense={true}
                 >
                   <Typography variant="h6" component="p">
-                    Examen: {data.exam_name}
+                    Evaluación: {data.exam_name}
                   </Typography>
                   <Typography mx={10} variant="h6" component="p">
                     Respuestas de: {data.student_name}
@@ -77,7 +73,7 @@ const Page = ({ data, handleExamcorrected, fragementModals }) => {
               </ListItem>
             );
           })
-        )}
+        }
       </List>
       {fragementModals}
     </>
