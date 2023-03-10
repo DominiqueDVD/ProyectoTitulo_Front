@@ -168,12 +168,7 @@ const Page = ({ data, handleSeeExam, score, exam, handleReadAnswer,   nameExam,}
                   </IconButton>
           </form>
          
-          <Button
-            startIcon={<VisibilityIcon />}
-            onClick={() => handleSeeExam()}
-          >
-            VER EXAMEN
-          </Button>
+          
         </ButtonGroup>
       </Box>
     </>

@@ -45,7 +45,7 @@ const Page = ({
             textAlign="center"
             sx={titleModal}
           >
-            Busar Examenes pedientes por curso:
+            Busar correcciones pedientes por curso:
           </Typography>
           <form
             onSubmit={handleOnSubmit}
@@ -94,22 +94,24 @@ const Page = ({
                 </Select>
               )}
             </Box>
-            <Box mt={5} sx={boxButton}>
-              <Button
-                type="submit"
-                sx={{ backgroundColor: "#fff", marginX: "10px" }}
-                variant="outlined"
-              >
-                Buscar
-              </Button>
-              <Button
-                sx={{ backgroundColor: "#fff", marginX: "10px" }}
-                variant="outlined"
-                onClick={handleOnClose}
-              >
-                Cancelar
-              </Button>
-            </Box>
+            <Box mt={4} mb={3} sx={boxButton}>
+          <Button
+            type="submit"
+            sx={{  color: "black",
+            background: "white", marginX: "10px" }}
+            variant="contained"
+          >
+            Buscar
+          </Button>
+          <Button
+            sx={{ color: "black",
+            background: "white", marginX: "10px" }}
+            variant="contained"
+            onClick={handleOnClose}
+          >
+            Cancelar
+          </Button>
+        </Box>
           </form>
         </Box>
       </Box>

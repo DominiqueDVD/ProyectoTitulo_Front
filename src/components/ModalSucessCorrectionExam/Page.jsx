@@ -28,9 +28,9 @@ const Page = ({ isOpen, handleOnClose, name }) => {
             textAlign="center"
             sx={titleModal}
           >
-            Evaluación {name} corregido con exito
+            Evaluación {name} corregida con éxito
           </Typography>
-          <img alt="Corrección hecha" src={successImg}></img>
+       
         </Box>
       </Box>
     </Modal>

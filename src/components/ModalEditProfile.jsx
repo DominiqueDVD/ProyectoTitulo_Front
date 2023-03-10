@@ -213,20 +213,24 @@ const ModalEditProfile = ({ isOpen, handleOnClose }) => {
                 justifyContent: "space-around",
               }}
             >
-              <Button
-                type="submit"
-                sx={{ backgroundColor: "#fff", marginX: "10px" }}
-                variant="outlined"
-              >
-                Guardar
-              </Button>
-              <Button
-                sx={{ backgroundColor: "#fff", marginX: "10px" }}
-                variant="outlined"
-                onClick={handleOnClose}
-              >
-                Cancelar
-              </Button>
+                <Box mt={4} mb={3} sx={boxButton}>
+          <Button
+            type="submit"
+            sx={{  color: "black",
+            background: "white", marginX: "10px" }}
+            variant="contained"
+          >
+          Guardar
+          </Button>
+          <Button
+            sx={{ color: "black",
+            background: "white", marginX: "10px" }}
+            variant="contained"
+            onClick={handleOnClose}
+          >
+            Cancelar
+          </Button>
+        </Box>
             </ButtonGroup>
           </form>
         </Box>

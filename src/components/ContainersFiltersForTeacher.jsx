@@ -229,7 +229,7 @@ export const FiltersBypendingExam = () => {
           }}
         >
           <FormControl
-            sx={{ backgroundColor: "#fff", borderRadius: "10px" }}
+            sx={{ backgroundColor: "#fff", borderRadius: "5px" }}
             size="small"
             fullWidth
           >

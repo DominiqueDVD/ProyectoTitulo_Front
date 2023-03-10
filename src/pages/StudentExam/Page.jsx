@@ -96,7 +96,7 @@ const Page = ({
           height: "80%",
           display: "flex",
           flexDirection: "row",
-          justifyContent: "center",
+        
         }}
       >
          <object data={exam} type="application/pdf" width="40%" height="100%">
@@ -150,7 +150,7 @@ const Page = ({
                       value={data.answer_text}
                     />
                  <TextField
-                      type="text"
+                      type="text" 
                       id="standard-basic"
                       label="Comentario"
                       variant="outlined"
@@ -160,7 +160,8 @@ const Page = ({
                       onChange={handleCorrectionsAnswer}
                     />
                     <TextField
-                      type="number"
+                      type="number" 
+                      inputProps={{min:0}}
                       id="standard-basic"
                       label="Puntaje"
                       variant="outlined"

@@ -62,7 +62,7 @@ const Page = ({
           height: '80%',
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'center',
+      
         }}
       >
         <object data={exam} type="application/pdf" width="50%" height="100%">

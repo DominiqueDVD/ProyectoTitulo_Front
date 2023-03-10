@@ -79,17 +79,19 @@ const Page = ({
             onChange={handleChange}
           />
         </Box>
-        <Box sx={boxButton}>
+        <Box mt={4} mb={3} sx={boxButton}>
           <Button
             type="submit"
-            sx={{ backgroundColor: "#fff", marginX: "10px" }}
-            variant="outlined"
+            sx={{  color: "black",
+            background: "white", marginX: "10px" }}
+            variant="contained"
           >
             Guardar
           </Button>
           <Button
-            sx={{ backgroundColor: "#fff", marginX: "10px" }}
-            variant="outlined"
+            sx={{ color: "black",
+            background: "white", marginX: "10px" }}
+            variant="contained"
             onClick={handleOnClose}
           >
             Cancelar

@@ -41,21 +41,23 @@ const ModalDeleteStudentFromACourse = ({ isOpen, handleOnClose }) => {
             ¿Está seguro que desea eliminar el Estudiante del curso?
           </Typography>
           <Box mt={4} mb={3} sx={boxButton}>
-            <Button
-              sx={{ marginX: "10px", backgroundColor: "#fff" }}
-              variant="outlined"
-              onClick={handleOnDelete}
-            >
-              Confirmar
-            </Button>
-            <Button
-              sx={{ marginX: "10px", backgroundColor: "#fff" }}
-              variant="outlined"
-              onClick={handleOnClose}
-            >
-              Cancelar
-            </Button>
-          </Box>
+          <Button
+            type="submit"
+            sx={{  color: "black",
+            background: "white", marginX: "10px" }}
+            variant="contained"
+          >
+           Confirmar
+          </Button>
+          <Button
+            sx={{ color: "black",
+            background: "white", marginX: "10px" }}
+            variant="contained"
+            onClick={handleOnClose}
+          >
+            Cancelar
+          </Button>
+        </Box>
         </Box>
       </Box>
     </Modal>

@@ -74,22 +74,24 @@ const Page = ({
                 }}
               />
             </Box>
-            <Box mt={5} sx={boxButton}>
-              <Button
-                type="submit"
-                sx={{ backgroundColor: "#fff", marginX: "10px" }}
-                variant="outlined"
-              >
-                Enviar
-              </Button>
-              <Button
-                sx={{ backgroundColor: "#fff", marginX: "10px" }}
-                variant="outlined"
-                onClick={handleOnClose}
-              >
-                Cancelar
-              </Button>
-            </Box>
+            <Box mt={4} mb={3} sx={boxButton}>
+          <Button
+            type="submit"
+            sx={{  color: "black",
+            background: "white", marginX: "10px" }}
+            variant="contained"
+          >
+            Enviar
+          </Button>
+          <Button
+            sx={{ color: "black",
+            background: "white", marginX: "10px" }}
+            variant="contained"
+            onClick={handleOnClose}
+          >
+            Cancelar
+          </Button>
+        </Box>
           </form>
           {finalScoreSuccess && (
             <Typography align="center" variant="h5" component="h5">
