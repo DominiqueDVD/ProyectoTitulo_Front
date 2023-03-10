@@ -5,6 +5,7 @@ import {
   IconButton,
   List,
   ListItem,
+
   TextField,
   Typography,
   ListItemButton
@@ -14,7 +15,13 @@ import { useSelector } from "react-redux";
 import React from 'react'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import OutboxIcon from '@mui/icons-material/Outbox'
+import useSound from 'use-sound';
+import sound from '../../assets/sound.mp3';
+import detener from '../../assets/detener.mp3'
+import escuchar from '../../assets/escuchar.mp3'
+import bip from '../../assets/bip.mp3'
 import StopIcon from '@mui/icons-material/Stop'
+
 import EmptyListParagraph from "../../components/EmptyListParagraph";
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice'
 import VolumeUpIcon from '@mui/icons-material/VolumeUp'
@@ -35,16 +42,36 @@ const Page = ({
   exam
 }) => {
   const { loading } = useSelector((s) => s?.uiReducer);
+ 
+
+
+  const [play, { stop }] = useSound(
+    bip,
+    { volume: 0.2 }
+  );
+
+  const [isHovering, setIsHovering] = React.useState(
+    false
+  );
+ 
+
   return (
     <>
- 
+
       <List
         sx={{
           color: 'white',
         }}
       >
-    
-        <Button a href="javascript:history.back()" color="inherit">
+   
+        <Button a href="javascript:history.back()" color="inherit" onMouseEnter={() => {
+                      setIsHovering(true);
+                      play(bip);
+                    }}
+                    onMouseLeave={() => {
+                      setIsHovering(false);
+                      stop(bip);
+                    }} isHovering={isHovering}>
           Volver Atrás
         </Button>
         <Typography variant="h5" component="p">
@@ -108,25 +135,34 @@ const Page = ({
                   variant="standard"
                   value={values?.[name] ?? ''}
                 />
-                <ButtonGroup>
+                <ButtonGroup  
+                onMouseEnter={() => {
+                      setIsHovering(true);
+                      play(bip);
+                    }}
+                    onMouseLeave={() => {
+                      setIsHovering(false);
+                      stop(bip);
+                    }} isHovering={isHovering}>
                   <IconButton
                     sx={{
                       background: '#1976d2',
                       marginX: '5px',
                     }}
                     onClick={() => handleStartRecord(name)}
+                   
                   >
-                    <KeyboardVoiceIcon />
+                    <KeyboardVoiceIcon  />
                   </IconButton>
                   <IconButton
                     sx={{
                       background: '#F80000',
                       marginX: '5px',
                     }}
-                    onClick={() => handleStopRecord()}
+                   
                   >
-                    <StopIcon />
-                  </IconButton>
+                    <StopIcon  />
+                  </IconButton >
                   <IconButton
                     sx={{
                       background: '#F8F32B',
@@ -143,7 +179,15 @@ const Page = ({
         </List>
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <ButtonGroup variant="contained">
+        
+        <ButtonGroup variant="contained" onMouseEnter={() => {
+                      setIsHovering(true);
+                      play(bip);
+                    }}
+                    onMouseLeave={() => {
+                      setIsHovering(false);
+                      stop(bip);
+                    }} isHovering={isHovering} >
           <Button startIcon={<OutboxIcon />} onClick={() => handleSendExam()}>
             ENVIAR RESPUESTAS
           </Button>
