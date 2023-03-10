@@ -11,24 +11,24 @@ const Page = ({ isOpen, handleOnClose, handleOnDelete }) => {
       handleOnClose={handleOnClose}
       title="¿Está seguro que desea eliminar el Periodo?"
     >
-     <Box mt={4} mb={3} sx={boxButton}>
-          <Button
-            type="submit"
-            sx={{  color: "black",
-            background: "white", marginX: "10px" }}
-            variant="contained"
-          >
-            Guardar
-          </Button>
-          <Button
-            sx={{ color: "black",
-            background: "white", marginX: "10px" }}
-            variant="contained"
-            onClick={handleOnClose}
-          >
-            Cancelar
-          </Button>
-        </Box>
+      <Box mt={4} mb={3} sx={boxButton}>
+        <Button
+          sx={{  color: "black",
+          background: "white", marginX: "10px" }}
+          variant="outlined"
+          onClick={handleOnDelete}
+        >
+          Confirmar
+        </Button>
+        <Button
+          sx={{  color: "black",
+          background: "white", marginX: "10px" }}
+          variant="outlined"
+          onClick={handleOnClose}
+        >
+          Cancelar
+        </Button>
+      </Box>
     </LayoutModal>
   );
 };
