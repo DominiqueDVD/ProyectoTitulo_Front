@@ -16,10 +16,11 @@ import React from 'react'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import OutboxIcon from '@mui/icons-material/Outbox'
 import useSound from 'use-sound';
-import sound from '../../assets/sound.mp3';
+import extra from '../../assets/extra.mp3';
+import grabar from '../../assets/grabar.mp3';
 import detener from '../../assets/detener.mp3'
 import escuchar from '../../assets/escuchar.mp3'
-import bip from '../../assets/bip.mp3'
+
 import StopIcon from '@mui/icons-material/Stop'
 
 import EmptyListParagraph from "../../components/EmptyListParagraph";
@@ -41,15 +42,26 @@ const Page = ({
   courseName,
   exam
 }) => {
-  const { loading } = useSelector((s) => s?.uiReducer);
+
  
 
 
-  const [play, { stop }] = useSound(
-    bip,
+  const [playGrabar] = useSound(
+    grabar,
     { volume: 0.2 }
   );
-
+  const [playDetener] = useSound(
+    detener,
+    { volume: 0.2 }
+  );
+  const [playEscuchar] = useSound(
+    escuchar, 
+    { volume: 0.2 }
+  );
+  const [playExtra] = useSound(
+    extra,
+    { volume: 0.2 }
+  );
   const [isHovering, setIsHovering] = React.useState(
     false
   );
@@ -66,11 +78,11 @@ const Page = ({
    
         <Button a href="javascript:history.back()" color="inherit" onMouseEnter={() => {
                       setIsHovering(true);
-                      play(bip);
+                      playExtra(extra);
                     }}
                     onMouseLeave={() => {
                       setIsHovering(false);
-                      stop(bip);
+                   
                     }} isHovering={isHovering}>
           Volver Atrás
         </Button>
@@ -147,11 +159,11 @@ const Page = ({
                   >
                     <KeyboardVoiceIcon onMouseEnter={() => {
                       setIsHovering(true);
-                      play(bip);
+                      playGrabar(grabar);
                     }}
                     onMouseLeave={() => {
                       setIsHovering(false);
-                      stop(bip);
+                 
                     }} isHovering={isHovering} />
                   </IconButton>
                   <IconButton
@@ -163,11 +175,11 @@ const Page = ({
                   >
                     <StopIcon  onMouseEnter={() => {
                       setIsHovering(true);
-                      play(bip);
+                      playDetener(detener);
                     }}
                     onMouseLeave={() => {
                       setIsHovering(false);
-                      stop(bip);
+                     
                     }} isHovering={isHovering}/>
                   </IconButton >
                   <IconButton
@@ -179,11 +191,11 @@ const Page = ({
                   >
                     <VolumeUpIcon onMouseEnter={() => {
                       setIsHovering(true);
-                      play(bip);
+                      playEscuchar(escuchar);
                     }}
                     onMouseLeave={() => {
                       setIsHovering(false);
-                      stop(bip);
+                     
                     }} isHovering={isHovering}/>
                   </IconButton>
                 </ButtonGroup>
@@ -196,11 +208,11 @@ const Page = ({
         
         <ButtonGroup variant="contained" onMouseEnter={() => {
                       setIsHovering(true);
-                      play(bip);
+                      playExtra(extra);
                     }}
                     onMouseLeave={() => {
                       setIsHovering(false);
-                      stop(bip);
+                
                     }} isHovering={isHovering} >
           <Button startIcon={<OutboxIcon />} onClick={() => handleSendExam()}>
             ENVIAR RESPUESTAS

@@ -3,16 +3,27 @@ import {
   ButtonGroup,
   CircularProgress,
   List,
+  IconButton,
   ListItem,
   ListItemButton,
   Typography,
 } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
+import VolumeUpIcon from '@mui/icons-material/VolumeUp'
 import EmptyListParagraph from "../../components/EmptyListParagraph";
+import useSound from 'use-sound';
+import escuchar from '../../assets/escuchar.mp3';
 
-const Page = ({ data, handleSeeCorrections }) => {
+const Page = ({ data, handleSeeCorrections, handleReadAnswer}) => {
   const { loading } = useSelector((s) => s?.uiReducer);
+  const [playEscuchar] = useSound(
+    escuchar, 
+    { volume: 0.2 }
+  );
+  const [isHovering, setIsHovering] = React.useState(
+    false
+  );
   return (
     <> <List
     sx={{
@@ -81,6 +92,22 @@ const Page = ({ data, handleSeeCorrections }) => {
                   <Button onClick={() => handleSeeCorrections(data)}>
                     Ver correciones
                   </Button>
+                  <IconButton
+                    sx={{
+                      background: '#F8F32B',
+                      marginX: '5px',
+                    }}
+                    onClick={() => handleReadAnswer("En la evaluación"+data.name+"se obtuvo la calificación"+data.score)}
+                  >
+                    <VolumeUpIcon onMouseEnter={() => {
+                      setIsHovering(true);
+                      playEscuchar(escuchar);
+                    }}
+                    onMouseLeave={() => {
+                      setIsHovering(false);
+                     
+                    }} isHovering={isHovering}/>
+                  </IconButton>
                 </ButtonGroup>
               </ListItem>
             );

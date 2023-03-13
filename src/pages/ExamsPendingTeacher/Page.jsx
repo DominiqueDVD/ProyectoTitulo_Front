@@ -37,7 +37,11 @@ const Page = ({ data, handleExamcorrected, fragementModals }) => {
           height: "80%",
         }}
       >
-        {
+        {loading ? (
+          <CircularProgress />
+        ) : data.length === 0 ? (
+          <EmptyListParagraph emptyList={"examenes por corregir"} />
+        ) : (
           data.map((data) => {
             return (
               <ListItem
@@ -73,7 +77,7 @@ const Page = ({ data, handleExamcorrected, fragementModals }) => {
               </ListItem>
             );
           })
-        }
+        )}
       </List>
       {fragementModals}
     </>

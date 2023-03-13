@@ -13,7 +13,16 @@ const IndexExamsCorrected = () => {
   const dispatch = useDispatch();
   const { jwt } = useSelector((s) => s?.authReducer);
   const { dataExam } = useSelector((s) => s?.studentReducer);
+  const handleReadAnswer = (String) => {
+    const speech = new SpeechSynthesisUtterance();
+    speech.text = String;
+    speech.volume = 1;
+    speech.rate = 0.7;
+    speech.pitch = 1;
+ 
 
+    window.speechSynthesis.speak(speech);
+  };
   const handleSeeCorrections = (data) => {
     dispatch(ChoosenExam(data));
     navigate(`/seeCorrections/${data.studentExam_id}`);
@@ -23,7 +32,7 @@ const IndexExamsCorrected = () => {
     dispatch(StartGetExamsCorrected(jwt, id));
   }, []);
 
-  return <Page data={dataExam} handleSeeCorrections={handleSeeCorrections} />;
+  return <Page data={dataExam} handleSeeCorrections={handleSeeCorrections}   handleReadAnswer={handleReadAnswer}/>;
 };
 
 export default IndexExamsCorrected;

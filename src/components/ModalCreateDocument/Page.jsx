@@ -141,6 +141,8 @@ const Page = ({
                 size="small"
                 required
                 type="number"
+                inputProps={{min:0}}
+              
                 sx={textFields}
                 id="outlined-basic"
                 variant="outlined"
@@ -169,6 +171,7 @@ const Page = ({
                 size="small"
                 required
                 type="number"
+                inputProps={{min:0}}
                 sx={textFields}
                 id="outlined-basic"
                 variant="outlined"
