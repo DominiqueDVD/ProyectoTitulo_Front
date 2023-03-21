@@ -12,7 +12,7 @@ export const StartLogin = (values) => {
         swal({
           title: "Atención",
           icon: "error",
-          text: data?.message,
+          text: "Los datos han sido ingresados de manera incorrecta",
           buttons: false,
           timer: 3000,
         });
