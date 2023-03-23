@@ -107,7 +107,7 @@ const Page = ({ data, handleSeeMaterial, handleReadAnswer }) => {
                       background: '#F8F32B',
                       marginX: '5px',
                     }}
-                    onClick={() => handleReadAnswer("Curso de" + data.name + "de la carrera de" + data.career + "del periodo" + data.period)}
+                    onClick={() => handleReadAnswer("Curso de" + data.name )+handleReadAnswer("de la carrera de" + data.career)+handleReadAnswer("del periodo" + data.period)}
                   >
                     <VolumeUpIcon onMouseEnter={() => {
                       setIsHovering(true);

@@ -121,7 +121,9 @@ const Page = ({ data, handleSeeExam, score, exam, handleReadAnswer,   nameExam,}
                       background: '#F8F32B',
                       marginX: '5px',
                     }}
-                    onClick={() => handleReadAnswer("La pregunta número " + data.question_id +"que tuvo por respuesta"+ data.answer_text+ " obtuvo "+ data.score + "puntos y el comentario dejado por el profesor es:"+ data.comment)}
+                    onClick={() => handleReadAnswer("La pregunta número " + data.question_id ) + 
+                    handleReadAnswer("que tuvo por respuesta"+ data.answer_text+ " obtuvo "+ data.score + "puntos")+
+                    handleReadAnswer("y el comentario dejado por el profesor es:"+ data.comment)}
                   >
                     <VolumeUpIcon />
                   </IconButton>
